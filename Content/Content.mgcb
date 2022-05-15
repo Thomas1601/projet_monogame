@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:Background/bg.png
 
+#begin Background/full_life.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Background/full_life.png
+
 #begin Background/testGamePlay.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -48,6 +60,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:logoRetro2.png
+
+#begin OST/Zelda_OST.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:OST/Zelda_OST.mp3
 
 #begin Player/AttakL2.png
 /importer:TextureImporter

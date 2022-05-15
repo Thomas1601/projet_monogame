@@ -86,3 +86,8 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.csproj.CopyComplete
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.genruntimeconfig.cache
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\AttakR.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\DieL.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\DieR.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\full_life.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\OST\Zelda_OST.wma
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\OST\Zelda_OST.xnb

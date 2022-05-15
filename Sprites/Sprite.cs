@@ -31,6 +31,10 @@ namespace projet_MonoGame.Sprites
 
     protected string attackR;
 
+    protected string dieL;
+
+    protected string dieR;
+
     #endregion
 
     #region Properties
@@ -74,6 +78,12 @@ namespace projet_MonoGame.Sprites
       if(attackR == "Y"){
         attackR = "N";
       }
+      if(dieL == "Y"){
+        dieL = "N";
+      }
+      if(dieR == "Y"){
+        dieR = "N";
+      }
       if (Keyboard.GetState().IsKeyDown(Input.Left)){
         Velocity.X = -Speed;
         direction = "L";
@@ -94,19 +104,38 @@ namespace projet_MonoGame.Sprites
           attackR = "Y";
         }
       }
+    if(Keyboard.GetState().IsKeyDown(Input.E)){
+        if(direction == "L"){
+          dieL = "Y";
+          dieR = "N";
+        }
+        else if(direction == "R"){
+          dieL = "N";
+          dieR = "Y";
+        }
+      }
     }
 
     protected virtual void SetAnimations()
     {
-      if (Velocity.X > 0)
+      if (Velocity.X > 0){
         _animationManager.Play(_animations["WalkRight"]);
-      else if (Velocity.X < 0)
+      }
+      else if (Velocity.X < 0){
         _animationManager.Play(_animations["WalkLeft"]);
+      }
       else if (attackL == "Y"){
         _animationManager.Play(_animations["AttackLeft"]);
       }
       else if (attackR == "Y"){
         _animationManager.Play(_animations["AttackRight"]);
+      }
+      else if (dieR == "Y"){
+        _animationManager.Play(_animations["DieRight"]);
+        dieL = "N";
+      }
+      else if (dieL == "Y"){
+        _animationManager.Play(_animations["DieLeft"]);
       }
       else _animationManager.Stop();
     }

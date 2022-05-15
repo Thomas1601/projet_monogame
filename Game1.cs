@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
 using projet_MonoGame.Models;
 using projet_MonoGame.Sprites;
@@ -28,9 +29,14 @@ namespace projet_MonoGame
     public Texture2D knight;
     public static double gravity = 0;
     public Texture2D bgGame;
+
+    public Texture2D lifeBar;
     public int ground = 550;
     public int logoWidth = 300;
     public int logoHeight = 150;
+    public int lifeWidth = 90;
+    public int lifeHeight = 20;
+    public Song song;
     public Vector2 position = new Vector2(0, 0);
     private GameState _gameState = GameState.MainMenu;
     public Game1()
@@ -72,11 +78,19 @@ namespace projet_MonoGame
         { "RunR", new Animation(Content.Load<Texture2D>("Player/RunR"), 8) },
         { "AttakL2", new Animation(Content.Load<Texture2D>("Player/AttakL2"), 6)},
         { "AttakR", new Animation(Content.Load<Texture2D>("Player/AttakR"), 6)},
+        { "DieR", new Animation(Content.Load<Texture2D>("Player/DieR"), 6)},
+        { "DieL", new Animation(Content.Load<Texture2D>("Player/DieL"), 6)},
       };
       bgTexture = Content.Load<Texture2D>("Background/bg");
       bgGame = Content.Load<Texture2D>("Background/testGamePlay");
       logoRetro2 = Content.Load<Texture2D>("logoRetro2");
       knight = Content.Load<Texture2D>("Player/Knight");
+      lifeBar = Content.Load<Texture2D>("Background/full_life");
+      song = Content.Load<Song>("OST/Zelda_OST");
+      MediaPlayer.Volume = 0.2f;
+      MediaPlayer.Play(song);
+      MediaPlayer.IsRepeating = true;
+      MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
 
       _sprites = new List<Sprite>()
       {
@@ -86,6 +100,8 @@ namespace projet_MonoGame
           { "WalkRight", new Animation(Content.Load<Texture2D>("Player/RunR"), 8) },
           { "AttackLeft", new Animation(Content.Load<Texture2D>("Player/AttakL2"), 6) },
           { "AttackRight", new Animation(Content.Load<Texture2D>("Player/AttakR"), 6) },
+          { "DieRight", new Animation(Content.Load<Texture2D>("Player/DieR"), 6)},
+          { "DieLeft", new Animation(Content.Load<Texture2D>("Player/DieL"), 6)},
         })
         {
           Position = new Vector2(50, ground),
@@ -95,10 +111,18 @@ namespace projet_MonoGame
             Right = Keys.D,
             Up = Keys.Space,
             A = Keys.A,
+            E = Keys.E,
           },
         },
       };
     }
+
+    void MediaPlayer_MediaStateChanged(object sender, System.EventArgs e)
+        {
+            // 0.0f is silent, 1.0f is full volume
+            MediaPlayer.Volume -= 0.1f;
+            MediaPlayer.Play(song);
+        }
 
     /// <summary>
     /// UnloadContent will be called once per game and is the place to unload
@@ -136,6 +160,7 @@ namespace projet_MonoGame
           }
           foreach (var sprite in _sprites)
             sprite.Update(gameTime, _sprites);
+          //spriteBatch.Draw(lifeBar, new Rectangle(50 ,530 ,lifeWidth ,lifeHeight), Color.White);
           break;
         }
         default: break;
@@ -169,12 +194,12 @@ namespace projet_MonoGame
                   spriteBatch.Draw(bgGame, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
                   foreach (var sprite in _sprites)
                     sprite.Draw(spriteBatch);
+                  spriteBatch.Draw(lifeBar, new Rectangle(50 ,530 ,lifeWidth ,lifeHeight), Color.White);
                   spriteBatch.End();
                   base.Draw(gameTime);
                   break;
                 }
                 default: break;
-            
             }
 
       spriteBatch.Begin();

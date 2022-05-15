@@ -16,5 +16,7 @@ namespace projet_MonoGame.Models
     public Keys Up { get; set;}
 
     public Keys A { get; set;}
+
+    public Keys E { get; set;}
   }
 }

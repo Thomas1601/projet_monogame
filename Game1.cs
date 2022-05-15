@@ -22,17 +22,17 @@ namespace projet_MonoGame
     private List<Sprite> _sprites;
 
     public const int windowWidth = 1200;
-        public const int windowHeight = 800;
-        public Texture2D bgTexture;
-        public Texture2D logoRetro2;
-        public Texture2D knight;
-        public static double gravity = 0;
-        public Texture2D bgGame;
-        public int ground = 550;
-        public int logoWidth = 300;
-        public int logoHeight = 150;
-        public Vector2 position = new Vector2(0, 0);
-        private GameState _gameState = GameState.MainMenu;
+    public const int windowHeight = 800;
+    public Texture2D bgTexture;
+    public Texture2D logoRetro2;
+    public Texture2D knight;
+    public static double gravity = 0;
+    public Texture2D bgGame;
+    public int ground = 550;
+    public int logoWidth = 300;
+    public int logoHeight = 150;
+    public Vector2 position = new Vector2(0, 0);
+    private GameState _gameState = GameState.MainMenu;
     public Game1()
     {
       graphics = new GraphicsDeviceManager(this);
@@ -71,6 +71,7 @@ namespace projet_MonoGame
         { "RunL", new Animation(Content.Load<Texture2D>("Player/RunL"), 8) },
         { "RunR", new Animation(Content.Load<Texture2D>("Player/RunR"), 8) },
         { "AttakL2", new Animation(Content.Load<Texture2D>("Player/AttakL2"), 6)},
+        { "AttakR", new Animation(Content.Load<Texture2D>("Player/AttakR"), 6)},
       };
       bgTexture = Content.Load<Texture2D>("Background/bg");
       bgGame = Content.Load<Texture2D>("Background/testGamePlay");
@@ -84,6 +85,7 @@ namespace projet_MonoGame
           { "WalkLeft", new Animation(Content.Load<Texture2D>("Player/RunL"), 8) },
           { "WalkRight", new Animation(Content.Load<Texture2D>("Player/RunR"), 8) },
           { "AttackLeft", new Animation(Content.Load<Texture2D>("Player/AttakL2"), 6) },
+          { "AttackRight", new Animation(Content.Load<Texture2D>("Player/AttakR"), 6) },
         })
         {
           Position = new Vector2(50, ground),
@@ -128,12 +130,9 @@ namespace projet_MonoGame
         }
         case GameState.GamePlay:
         { 
-          if((int)position.Y < ground){
-            gravity += 0.20;
-            position.Y += (int)Math.Truncate(gravity);
-          }
-          if((int)position.Y >= ground){
-            gravity = 0.0;
+          if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)){
+          Exit();
+          break;
           }
           foreach (var sprite in _sprites)
             sprite.Update(gameTime, _sprites);
@@ -158,7 +157,7 @@ namespace projet_MonoGame
                 case GameState.MainMenu:
                 {
                     _spriteBatch.Begin();
-                    _spriteBatch.Draw(bgTexture, new Rectangle(0 ,0 ,1200 ,800), Color.White);
+                    _spriteBatch.Draw(bgTexture, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
                     _spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2),logoWidth ,logoHeight), Color.White);
                     _spriteBatch.End();
                     base.Draw(gameTime);

@@ -85,3 +85,4 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.csproj.CoreCompileInputs.cache
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.csproj.CopyComplete
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.genruntimeconfig.cache
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\AttakR.xnb

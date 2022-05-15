@@ -23,9 +23,13 @@ namespace projet_MonoGame.Sprites
 
     protected double gravity;
 
+    protected string direction = "L";
+
     protected Texture2D _texture;
 
     protected string attackL;
+
+    protected string attackR;
 
     #endregion
 
@@ -67,14 +71,29 @@ namespace projet_MonoGame.Sprites
       if(attackL == "Y"){
         attackL = "N";
       }
-      if (Keyboard.GetState().IsKeyDown(Input.Left))
+      if(attackR == "Y"){
+        attackR = "N";
+      }
+      if (Keyboard.GetState().IsKeyDown(Input.Left)){
         Velocity.X = -Speed;
-      else if (Keyboard.GetState().IsKeyDown(Input.Right))
+        direction = "L";
+      }
+      else if (Keyboard.GetState().IsKeyDown(Input.Right)){
         Velocity.X = Speed;
+        direction = "R";
+      }
       if (Keyboard.GetState().IsKeyDown(Input.Up))
         Velocity.Y = -2*Speed;
-      if(Keyboard.GetState().IsKeyDown(Input.A))
-        attackL = "Y";
+      if(Keyboard.GetState().IsKeyDown(Input.A)){
+        if(direction == "L"){
+          attackL = "Y";
+          attackR = "N";
+        }
+        else if(direction == "R"){
+          attackL = "N";
+          attackR = "Y";
+        }
+      }
     }
 
     protected virtual void SetAnimations()
@@ -85,6 +104,9 @@ namespace projet_MonoGame.Sprites
         _animationManager.Play(_animations["WalkLeft"]);
       else if (attackL == "Y"){
         _animationManager.Play(_animations["AttackLeft"]);
+      }
+      else if (attackR == "Y"){
+        _animationManager.Play(_animations["AttackRight"]);
       }
       else _animationManager.Stop();
     }
@@ -106,7 +128,7 @@ namespace projet_MonoGame.Sprites
       if(Position.Y >= 550.0){
         gravity = 0.0;
       }else if(Position.Y < 550.0){
-        gravity += 0.2;
+        gravity += 0.30;
         Velocity.Y = Velocity.Y + (int)Math.Truncate(gravity);
       }
 

@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/RunL.png","C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Player/RunL.xnb","TextureProcessor","Texture2DContent",71393,240085,0,1180703
+"C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/RunR.png","C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Player/RunR.xnb","TextureProcessor","Texture2DContent",71493,240085,0,0070476

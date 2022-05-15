@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using projet_MonoGame.Models;
 using projet_MonoGame.Sprites;
 using System;
+using System.IO;
 
 namespace projet_MonoGame
 {
@@ -25,6 +26,7 @@ namespace projet_MonoGame
     public const int windowWidth = 1200;
     public const int windowHeight = 800;
     public Texture2D bgTexture;
+    public Texture2D bgAccueil;
     public Texture2D logoRetro2;
     public Texture2D knight;
     public static double gravity = 0;
@@ -90,6 +92,7 @@ namespace projet_MonoGame
       };
       bgTexture = Content.Load<Texture2D>("Background/bg");
       bgGame = Content.Load<Texture2D>("Background/testGamePlay");
+      bgAccueil = Content.Load<Texture2D>("Background/bg_accueil");
       logoRetro2 = Content.Load<Texture2D>("logoRetro2");
       knight = Content.Load<Texture2D>("Player/Knight");
       lifeBar = Content.Load<Texture2D>("Background/full_life");
@@ -166,8 +169,9 @@ namespace projet_MonoGame
         if(state.IsKeyDown(Keys.Space)){
           _gameState = GameState.GamePlay;
         }
-        if (state.IsKeyDown(Keys.Escape) && time >= 60)
+        if (state.IsKeyDown(Keys.Escape) && time >= 60){
           Exit();
+        }
           break;
         }
         case GameState.GamePlay:
@@ -223,8 +227,8 @@ namespace projet_MonoGame
                 case GameState.MainMenu:
                 {
                     _spriteBatch.Begin();
-                    _spriteBatch.Draw(bgTexture, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
-                    _spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2),logoWidth ,logoHeight), Color.White);
+                    _spriteBatch.Draw(bgAccueil, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
+                    _spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2)+150,logoWidth ,logoHeight), Color.White);
                     _spriteBatch.End();
                     base.Draw(gameTime);
                     break;
@@ -235,7 +239,7 @@ namespace projet_MonoGame
                   spriteBatch.Draw(bgGame, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
                   foreach (var sprite in _sprites)
                     sprite.Draw(spriteBatch);
-                  spriteBatch.Draw(lifeBar, new Rectangle(50 ,530 ,lifeWidth ,lifeHeight), Color.White);
+                  spriteBatch.Draw(lifeBar, new Rectangle((int)Math.Truncate(_sprites[0].Position.X)-10 ,(int)Math.Truncate(_sprites[0].Position.Y)-10 ,lifeWidth ,lifeHeight), Color.White);
                   spriteBatch.End();
                   base.Draw(gameTime);
                   break;

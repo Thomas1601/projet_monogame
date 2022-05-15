@@ -22,18 +22,22 @@ namespace projet_MonoGame
     private SpriteBatch _spriteBatch;
 
     private List<Sprite> _sprites;
-
+    Dictionary<string, string> listMap = new Dictionary<string, string>();
+    public Vector2 posMap1 = new Vector2(100, 550);
+    public Vector2 posEndMap1 = new Vector2(1100,550);
+    public Vector2 posMap2 = new Vector2(100, 600);
+    public Vector2 posEndMap2 = new Vector2(1100,600);
     public const int windowWidth = 1200;
     public const int windowHeight = 800;
     public Texture2D bgTexture;
+    public int ground = 550;
     public Texture2D bgAccueil;
     public Texture2D logoRetro2;
     public Texture2D knight;
     public static double gravity = 0;
     public Texture2D bgGame;
-
+    public int curMap = 0;
     public Texture2D lifeBar;
-    public int ground = 550;
     public int logoWidth = 300;
     public int logoHeight = 150;
     public int lifeWidth = 90;
@@ -46,6 +50,8 @@ namespace projet_MonoGame
     public int time = 0;
     List<SoundEffect> soundEffects;
     public Vector2 position = new Vector2(0, 0);
+
+
     private GameState _gameState = GameState.MainMenu;
     public Game1()
     {
@@ -129,6 +135,13 @@ namespace projet_MonoGame
           },
         },
       };
+      initMap();
+    }
+
+    void initMap()
+    {
+      listMap.Add("1", "Background/gamleplay_1");
+      listMap.Add("2", "Background/gamleplay_2");
     }
 
     void MediaPlayer_MediaStateChanged(object sender, System.EventArgs e)
@@ -167,6 +180,7 @@ namespace projet_MonoGame
             curSong = "MainMenu";
           }
         if(state.IsKeyDown(Keys.Space)){
+          curMap = 1;
           _gameState = GameState.GamePlay;
         }
         if (state.IsKeyDown(Keys.Escape) && time >= 60){
@@ -176,6 +190,24 @@ namespace projet_MonoGame
         }
         case GameState.GamePlay:
         { 
+          if(_sprites[0].Position.X >= windowWidth-50 && curMap < 2){
+            string tmpMap = ""+(curMap+1);
+            //bgGame = Content.Load<Texture2D>(listMap[tmpMap]);
+            bgGame = Content.Load<Texture2D>("Background/gameplay_2");
+            if(curMap == 1){
+              _sprites[0].Position = posMap2;
+            }
+            curMap+=1;
+          }
+          else if(_sprites[0].Position.X <= 50 && curMap > 1){
+            string tmpMap = ""+(curMap-1);
+            //bgGame = Content.Load<Texture2D>(listMap[tmpMap]);
+            bgGame = Content.Load<Texture2D>("Background/gameplay_1");
+            if(curMap == 2){
+              _sprites[0].Position = posEndMap1;
+            }
+            curMap-=1;
+          }
           if (state.IsKeyDown(Keys.Space) && jumpTime == 0){
             soundEffects[0].CreateInstance().Play();
             jumpTime += 1;
@@ -228,7 +260,7 @@ namespace projet_MonoGame
                 {
                     _spriteBatch.Begin();
                     _spriteBatch.Draw(bgAccueil, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
-                    _spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2)+150,logoWidth ,logoHeight), Color.White);
+                    //_spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2)+150,logoWidth ,logoHeight), Color.White);
                     _spriteBatch.End();
                     base.Draw(gameTime);
                     break;

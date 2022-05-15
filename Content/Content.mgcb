@@ -61,17 +61,29 @@
 /processorParam:TextureFormat=Color
 /build:logoRetro2.png
 
-#begin OST/Zelda_Main.mp3
+#begin Music/OST/Zelda_Main.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:OST/Zelda_Main.mp3
+/build:Music/OST/Zelda_Main.mp3
 
-#begin OST/Zelda_OST.mp3
+#begin Music/OST/Zelda_OST.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:OST/Zelda_OST.mp3
+/build:Music/OST/Zelda_OST.mp3
+
+#begin Music/SoundEffect/Jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Music/SoundEffect/Jump.wav
+
+#begin Music/SoundEffect/Sword.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Music/SoundEffect/Sword.wav
 
 #begin Player/AttakL2.png
 /importer:TextureImporter

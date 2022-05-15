@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/OST/Zelda_OST.mp3</SourceFile>
+  <SourceFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Music/OST/Zelda_OST.mp3</SourceFile>
   <SourceTime>2022-05-15T13:53:56.5570305+02:00</SourceTime>
-  <DestFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/OST/Zelda_OST.xnb</DestFile>
-  <DestTime>2022-05-15T13:55:51.9954306+02:00</DestTime>
+  <DestFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Music/OST/Zelda_OST.xnb</DestFile>
+  <DestTime>2022-05-15T14:52:37.206789+02:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/OST/Zelda_OST.wma</string>
+    <string>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Music/OST/Zelda_OST.wma</string>
   </BuildOutput>
 </PipelineBuildEvent>

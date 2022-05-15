@@ -38,8 +38,11 @@ namespace projet_MonoGame
     public int lifeHeight = 20;
     public Song song;
     public Song songIntro;
+    public int jumpTime = 0;
+    public int attackTime = 0;
     public string curSong = "";
     public int time = 0;
+    List<SoundEffect> soundEffects;
     public Vector2 position = new Vector2(0, 0);
     private GameState _gameState = GameState.MainMenu;
     public Game1()
@@ -47,6 +50,7 @@ namespace projet_MonoGame
       graphics = new GraphicsDeviceManager(this);
       Content.RootDirectory = "Content";
       IsMouseVisible = false;
+      soundEffects = new List<SoundEffect>();
     }
 
     /// <summary>
@@ -89,11 +93,14 @@ namespace projet_MonoGame
       logoRetro2 = Content.Load<Texture2D>("logoRetro2");
       knight = Content.Load<Texture2D>("Player/Knight");
       lifeBar = Content.Load<Texture2D>("Background/full_life");
-      song = Content.Load<Song>("OST/Zelda_OST");
-      songIntro = Content.Load<Song>("OST/Zelda_Main");
+      song = Content.Load<Song>("Music/OST/Zelda_OST");
+      songIntro = Content.Load<Song>("Music/OST/Zelda_Main");
       MediaPlayer.Volume = 0.2f;
       MediaPlayer.Play(songIntro);
       MediaPlayer.IsRepeating = true;
+      soundEffects.Add(Content.Load<SoundEffect>("Music/SoundEffect/Jump"));
+      soundEffects.Add(Content.Load<SoundEffect>("Music/SoundEffect/Sword"));
+      SoundEffect.MasterVolume = 0.2f;
       //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
 
       _sprites = new List<Sprite>()
@@ -165,6 +172,26 @@ namespace projet_MonoGame
         }
         case GameState.GamePlay:
         { 
+          if (state.IsKeyDown(Keys.Space) && jumpTime == 0){
+            soundEffects[0].CreateInstance().Play();
+            jumpTime += 1;
+          }
+          if (jumpTime > 0){
+            if(jumpTime == 55)
+              jumpTime = 0;
+            else
+              jumpTime += 1;
+          }
+          if(state.IsKeyDown(Keys.A) && attackTime == 0){
+            soundEffects[1].CreateInstance().Play();
+            attackTime += 1;
+          }
+          if (attackTime > 0){
+            if(attackTime == 40)
+              attackTime = 0;
+            else
+              attackTime += 1;
+          }
           if(curSong != "GamePlay"){
             time = 0;
             MediaPlayer.Play(song);

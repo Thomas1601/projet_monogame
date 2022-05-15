@@ -37,6 +37,9 @@ namespace projet_MonoGame
     public int lifeWidth = 90;
     public int lifeHeight = 20;
     public Song song;
+    public Song songIntro;
+    public string curSong = "";
+    public int time = 0;
     public Vector2 position = new Vector2(0, 0);
     private GameState _gameState = GameState.MainMenu;
     public Game1()
@@ -87,10 +90,11 @@ namespace projet_MonoGame
       knight = Content.Load<Texture2D>("Player/Knight");
       lifeBar = Content.Load<Texture2D>("Background/full_life");
       song = Content.Load<Song>("OST/Zelda_OST");
+      songIntro = Content.Load<Song>("OST/Zelda_Main");
       MediaPlayer.Volume = 0.2f;
-      MediaPlayer.Play(song);
+      MediaPlayer.Play(songIntro);
       MediaPlayer.IsRepeating = true;
-      MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+      //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
 
       _sprites = new List<Sprite>()
       {
@@ -145,22 +149,32 @@ namespace projet_MonoGame
       {
         case GameState.MainMenu:
         {
+          if(time < 60){
+          time +=1;
+          }
+          if(curSong != "MainMenu"){
+            MediaPlayer.Play(songIntro);
+            curSong = "MainMenu";
+          }
         if(state.IsKeyDown(Keys.Space)){
           _gameState = GameState.GamePlay;
         }
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (state.IsKeyDown(Keys.Escape) && time >= 60)
           Exit();
           break;
         }
         case GameState.GamePlay:
         { 
-          if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)){
-          Exit();
-          break;
+          if(curSong != "GamePlay"){
+            time = 0;
+            MediaPlayer.Play(song);
+            curSong = "GamePlay";
           }
+          if(state.IsKeyDown(Keys.Escape)){
+            _gameState = GameState.MainMenu;
+        }
           foreach (var sprite in _sprites)
             sprite.Update(gameTime, _sprites);
-          //spriteBatch.Draw(lifeBar, new Rectangle(50 ,530 ,lifeWidth ,lifeHeight), Color.White);
           break;
         }
         default: break;

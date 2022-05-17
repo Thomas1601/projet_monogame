@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Music/SoundEffect/Jump.wav</SourceFile>
   <SourceTime>2022-05-15T15:11:45.3736238+02:00</SourceTime>
   <DestFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Music/SoundEffect/Jump.xnb</DestFile>
-  <DestTime>2022-05-15T20:39:05.3390957+02:00</DestTime>
+  <DestTime>2022-05-17T18:22:34.2713232+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

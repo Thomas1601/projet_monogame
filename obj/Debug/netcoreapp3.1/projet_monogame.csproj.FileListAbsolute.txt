@@ -98,3 +98,9 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\bg_accueil.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\gameplay_1.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\gameplay_2.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\life\dead_life.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\life\full_life.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\life\low_life.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\life\mid_life.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\life\semi_full.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\life\semi_low.xnb

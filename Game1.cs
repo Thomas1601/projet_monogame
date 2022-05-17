@@ -101,7 +101,7 @@ namespace projet_MonoGame
       bgAccueil = Content.Load<Texture2D>("Background/bg_accueil");
       logoRetro2 = Content.Load<Texture2D>("logoRetro2");
       knight = Content.Load<Texture2D>("Player/Knight");
-      lifeBar = Content.Load<Texture2D>("Background/full_life");
+      lifeBar = Content.Load<Texture2D>("Player/life/full_life");
       song = Content.Load<Song>("Music/OST/Zelda_OST");
       songIntro = Content.Load<Song>("Music/OST/Zelda_Main");
       MediaPlayer.Volume = 0.2f;

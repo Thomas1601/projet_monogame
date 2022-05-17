@@ -29,12 +29,10 @@ namespace projet_MonoGame
     public Vector2 posEndMap2 = new Vector2(1100,600);
     public const int windowWidth = 1200;
     public const int windowHeight = 800;
-    public Texture2D bgTexture;
     public int ground = 550;
     public Texture2D bgAccueil;
     public Texture2D logoRetro2;
     public Texture2D knight;
-    public static double gravity = 0;
     public Texture2D bgGame;
     public int curMap = 0;
     public Texture2D lifeBar;
@@ -50,8 +48,6 @@ namespace projet_MonoGame
     public int time = 0;
     List<SoundEffect> soundEffects;
     public Vector2 position = new Vector2(0, 0);
-
-
     private GameState _gameState = GameState.MainMenu;
     public Game1()
     {
@@ -96,7 +92,6 @@ namespace projet_MonoGame
         { "DieR", new Animation(Content.Load<Texture2D>("Player/DieR"), 6)},
         { "DieL", new Animation(Content.Load<Texture2D>("Player/DieL"), 6)},
       };
-      bgTexture = Content.Load<Texture2D>("Background/bg");
       bgGame = Content.Load<Texture2D>("Background/testGamePlay");
       bgAccueil = Content.Load<Texture2D>("Background/bg_accueil");
       logoRetro2 = Content.Load<Texture2D>("logoRetro2");
@@ -191,8 +186,6 @@ namespace projet_MonoGame
         case GameState.GamePlay:
         { 
           if(_sprites[0].Position.X >= windowWidth-50 && curMap < 2){
-            string tmpMap = ""+(curMap+1);
-            //bgGame = Content.Load<Texture2D>(listMap[tmpMap]);
             bgGame = Content.Load<Texture2D>("Background/gameplay_2");
             if(curMap == 1){
               _sprites[0].Position = posMap2;
@@ -200,8 +193,6 @@ namespace projet_MonoGame
             curMap+=1;
           }
           else if(_sprites[0].Position.X <= 50 && curMap > 1){
-            string tmpMap = ""+(curMap-1);
-            //bgGame = Content.Load<Texture2D>(listMap[tmpMap]);
             bgGame = Content.Load<Texture2D>("Background/gameplay_1");
             if(curMap == 2){
               _sprites[0].Position = posEndMap1;

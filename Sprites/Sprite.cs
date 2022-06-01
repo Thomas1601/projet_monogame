@@ -53,7 +53,7 @@ namespace projet_MonoGame.Sprites
       }
     }
 
-    public float Speed = 3.8f;
+    public float Speed = 4.2f;
 
     public Vector2 Velocity;
 

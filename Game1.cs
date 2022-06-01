@@ -66,6 +66,7 @@ namespace projet_MonoGame
     protected override void Initialize()
     {
       // TODO: Add your initialization logic here
+      //Window.AllowUserResizing = true;
       graphics.PreferredBackBufferHeight = windowHeight;
       graphics.PreferredBackBufferWidth = windowWidth;
       graphics.ApplyChanges();

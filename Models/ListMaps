@@ -1,25 +1,18 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using System.Collections.Generic;
-using projet_MonoGame.Models;
-using projet_MonoGame.Sprites;
 using System;
-using System.IO;
+using System.Collections.Generic;
 
-namespace projet_MonoGame.Models
+namespace projet_MonoGame.Models{
 
-public class ListMap {
+//public class Map {
     
-    public float mapOrder{ get; set; }
-    public string mapRef { get; set; }
-    public Vector2 positionStart{ get; set; }
+//    private float mapOrder{ get; set; }
+//    private string mapRef { get; set; }
+ //   private Vector2 positionStart{ get; set; }
     
-    public ListMap(float mapOrder, string mapRef, Vector2 positionStart) {
-    this.mapOrder = mapOrder;
-    this.mapRef = mapRef;
-    this.positionStart = positionStart;
-    }
+  //  public Map(float mapOrder, string mapRef, Vector2 positionStart) {
+  //  this.mapOrder = mapOrder;
+   // this.mapRef = mapRef;
+   // this.positionStart = positionStart;
+    //}
  }

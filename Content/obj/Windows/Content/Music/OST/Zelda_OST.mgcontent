@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/Music/OST/Zelda_OST.mp3</SourceFile>
+  <SourceFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/Music/OST/Zelda_OST.mp3</SourceFile>
   <SourceTime>2022-06-02T10:01:35.0847377+02:00</SourceTime>
-  <DestFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Music/OST/Zelda_OST.xnb</DestFile>
-  <DestTime>2022-06-02T10:35:22.5154204+02:00</DestTime>
+  <DestFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Music/OST/Zelda_OST.xnb</DestFile>
+  <DestTime>2022-06-02T23:17:20.3639222+02:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>G:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Music/OST/Zelda_OST.wma</string>
+    <string>g:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Music/OST/Zelda_OST.wma</string>
   </BuildOutput>
 </PipelineBuildEvent>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UEBdGCSS0PZOqVWT3w5bZRt8G2pSTk/CW+7iTaoaFKhsrzzFJnHeXvDeAvThv/82kvfK48PbfkMhBiJx90WVtQ==",
+  "dgSpecHash": "QMoc8XX/MC34/PqH/0U/xmlItsek0pQGdpPKxn2294zHd8BfPOKPnxsFOM4KjFkYh0STaDGt4LaWRVOI/g2giA==",
   "success": true,
-  "projectFilePath": "G:\\Efficom\\projet_monogame\\projet_monogame.csproj",
+  "projectFilePath": "G:\\Efficom\\projet_monogame-main\\projet_monogame\\projet_monogame.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tom\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\Tom\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",

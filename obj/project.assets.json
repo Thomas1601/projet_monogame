@@ -7385,11 +7385,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Efficom\\projet_monogame\\projet_monogame.csproj",
+      "projectUniqueName": "G:\\Efficom\\projet_monogame-main\\projet_monogame\\projet_monogame.csproj",
       "projectName": "projet_monogame",
-      "projectPath": "G:\\Efficom\\projet_monogame\\projet_monogame.csproj",
+      "projectPath": "G:\\Efficom\\projet_monogame-main\\projet_monogame\\projet_monogame.csproj",
       "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
-      "outputPath": "G:\\Efficom\\projet_monogame\\obj\\",
+      "outputPath": "G:\\Efficom\\projet_monogame-main\\projet_monogame\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -4,31 +4,35 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>G:/Efficom/projet_monogame/Content/Background/bg.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Background/bg_accueil.jpg</File>
-    <File>G:/Efficom/projet_monogame/Content/Background/full_life.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Background/gameplay_1.jpg</File>
-    <File>G:/Efficom/projet_monogame/Content/Background/gameplay_2.png</File>
-    <File>G:/Efficom/projet_monogame/Content/logoRetro2.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Music/OST/Zelda_Main.mp3</File>
-    <File>G:/Efficom/projet_monogame/Content/Music/OST/Zelda_OST.mp3</File>
-    <File>G:/Efficom/projet_monogame/Content/Music/SoundEffect/Jump.wav</File>
-    <File>G:/Efficom/projet_monogame/Content/Music/SoundEffect/Sword.wav</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/AttakL2.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/AttakR.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/DieL.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/DieR.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/Knight.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/life/dead_life.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/life/full_life.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/life/low_life.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/life/mid_life.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/life/semi_full.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/life/semi_low.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/RunL.png</File>
-    <File>G:/Efficom/projet_monogame/Content/Player/RunR.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Background/bg.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Background/bg_accueil.jpg</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Background/floor.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Background/full_life.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Background/gameplay_1.jpg</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Background/gameplay_2.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Background/wall.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/logoRetro2.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Music/OST/Zelda_Main.mp3</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Music/OST/Zelda_OST.mp3</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Music/SoundEffect/Jump.wav</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Music/SoundEffect/Sword.wav</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/AttakL2.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/AttakR.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/DieL.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/DieR.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/Knight.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/life/dead_life.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/life/full_life.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/life/low_life.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/life/mid_life.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/life/semi_full.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/life/semi_low.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/RunL.png</File>
+    <File>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/RunR.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

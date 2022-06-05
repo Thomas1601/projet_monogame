@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/DieR.png</SourceFile>
-  <SourceTime>2022-06-02T23:51:36.3101912+02:00</SourceTime>
+  <SourceTime>2022-06-05T23:05:38.5347818+02:00</SourceTime>
   <DestFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Player/DieR.xnb</DestFile>
-  <DestTime>2022-06-02T23:51:43.8475854+02:00</DestTime>
+  <DestTime>2022-06-05T23:05:48.1866847+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

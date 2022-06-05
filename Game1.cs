@@ -90,8 +90,8 @@ namespace projet_MonoGame
         { "RunR", new Animation(Content.Load<Texture2D>("Player/RunR"), 8) },
         { "AttakL2", new Animation(Content.Load<Texture2D>("Player/AttakL2"), 6)},
         { "AttakR", new Animation(Content.Load<Texture2D>("Player/AttakR"), 6)},
-        { "DieR", new Animation(Content.Load<Texture2D>("Player/DieR"), 6)},
-        { "DieL", new Animation(Content.Load<Texture2D>("Player/DieL"), 6)},
+        { "DieR", new Animation(Content.Load<Texture2D>("Player/DieR"), 7)},
+        { "DieL", new Animation(Content.Load<Texture2D>("Player/DieL"), 7)},
       };
       bgGame = Content.Load<Texture2D>("Background/testGamePlay");
       bgAccueil = Content.Load<Texture2D>("Background/bg_accueil");

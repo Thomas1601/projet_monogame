@@ -3,7 +3,7 @@
   <SourceFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/Music/SoundEffect/Sword.wav</SourceFile>
   <SourceTime>2022-06-02T10:01:35.0887374+02:00</SourceTime>
   <DestFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Music/SoundEffect/Sword.xnb</DestFile>
-  <DestTime>2022-06-08T10:38:59.031815+02:00</DestTime>
+  <DestTime>2022-06-08T10:57:41.7292942+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

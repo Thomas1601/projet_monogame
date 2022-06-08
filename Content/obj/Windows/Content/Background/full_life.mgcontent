@@ -2,8 +2,16 @@
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/Background/full_life.png</SourceFile>
   <SourceTime>2022-06-02T10:01:35.0357382+02:00</SourceTime>
+<<<<<<< HEAD
   <DestFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Background/full_life.xnb</DestFile>
   <DestTime>2022-06-08T11:01:28.0191944+02:00</DestTime>
+||||||| c2acf3a
+  <DestFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Background/full_life.xnb</DestFile>
+  <DestTime>2022-06-02T10:35:18.9034198+02:00</DestTime>
+=======
+  <DestFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Background/full_life.xnb</DestFile>
+  <DestTime>2022-06-08T10:57:35.9222945+02:00</DestTime>
+>>>>>>> main
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

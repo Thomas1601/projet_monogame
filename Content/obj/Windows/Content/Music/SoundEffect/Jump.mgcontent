@@ -2,8 +2,16 @@
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/Music/SoundEffect/Jump.wav</SourceFile>
   <SourceTime>2022-06-02T10:01:35.0867379+02:00</SourceTime>
+<<<<<<< HEAD
   <DestFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Music/SoundEffect/Jump.xnb</DestFile>
   <DestTime>2022-06-08T11:01:33.420079+02:00</DestTime>
+||||||| c2acf3a
+  <DestFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Music/SoundEffect/Jump.xnb</DestFile>
+  <DestTime>2022-06-02T10:35:23.0983354+02:00</DestTime>
+=======
+  <DestFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Music/SoundEffect/Jump.xnb</DestFile>
+  <DestTime>2022-06-08T10:57:41.0942942+02:00</DestTime>
+>>>>>>> main
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

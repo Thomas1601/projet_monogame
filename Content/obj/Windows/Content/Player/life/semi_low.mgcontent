@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/life/semi_low.png</SourceFile>
+  <SourceFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/Player/life/semi_low.png</SourceFile>
   <SourceTime>2022-06-02T10:01:35.09974+02:00</SourceTime>
-  <DestFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Player/life/semi_low.xnb</DestFile>
-  <DestTime>2022-06-08T10:56:22.5112641+02:00</DestTime>
+  <DestFile>g:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Player/life/semi_low.xnb</DestFile>
+  <DestTime>2022-06-08T11:01:34.2500827+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

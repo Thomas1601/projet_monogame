@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/Player/Knight.png</SourceFile>
-  <SourceTime>2022-06-02T10:01:35.0927383+02:00</SourceTime>
-  <DestFile>G:/Efficom/projet_monogame-main/projet_monogame/Content/bin/Windows/Content/Player/Knight.xnb</DestFile>
-  <DestTime>2022-06-02T23:28:52.1741833+02:00</DestTime>
+  <SourceFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/Knight.png</SourceFile>
+  <SourceTime>2022-05-15T11:54:12.8528804+02:00</SourceTime>
+  <DestFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Player/Knight.xnb</DestFile>
+  <DestTime>2022-06-06T08:12:56.7640745+02:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
+  <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2020-08-10T18:17:54+02:00</ProcessorTime>
+  <ProcessorTime>2020-08-10T16:17:54+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

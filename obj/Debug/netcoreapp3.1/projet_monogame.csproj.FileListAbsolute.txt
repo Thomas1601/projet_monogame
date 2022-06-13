@@ -79,7 +79,6 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
-C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.csprojAssemblyReference.cache
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.AssemblyInfoInputs.cache
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.AssemblyInfo.cs
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.csproj.CoreCompileInputs.cache
@@ -232,3 +231,7 @@ G:\Efficom\projet_monogame-main\projet_monogame\obj\Debug\netcoreapp3.1\projet_m
 G:\Efficom\projet_monogame-main\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.dll
 G:\Efficom\projet_monogame-main\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.pdb
 G:\Efficom\projet_monogame-main\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.genruntimeconfig.cache
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\floor.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\wall.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.csproj.AssemblyReference.cache
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.GeneratedMSBuildEditorConfig.editorconfig

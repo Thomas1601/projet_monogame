@@ -22,6 +22,7 @@ namespace projet_MonoGame
     private SpriteBatch _spriteBatch;
 
     private List<Sprite> _sprites;
+    private List<Sprite> _spritesMonster;
     Dictionary<string, string> listMap = new Dictionary<string, string>();
     public Vector2 posMap1 = new Vector2(100, 550);
     public Vector2 posEndMap1 = new Vector2(1100,550);
@@ -84,15 +85,7 @@ namespace projet_MonoGame
       _spriteBatch = new SpriteBatch(GraphicsDevice);
 
       // NOTE: I no-longer use this reference as it affects different objects if being used multiple times!
-      var animations = new Dictionary<string, Animation>()
-      {
-        { "RunL", new Animation(Content.Load<Texture2D>("Player/RunL"), 8) },
-        { "RunR", new Animation(Content.Load<Texture2D>("Player/RunR"), 8) },
-        { "AttakL2", new Animation(Content.Load<Texture2D>("Player/AttakL2"), 6)},
-        { "AttakR", new Animation(Content.Load<Texture2D>("Player/AttakR"), 6)},
-        { "DieR", new Animation(Content.Load<Texture2D>("Player/DieR"), 7)},
-        { "DieL", new Animation(Content.Load<Texture2D>("Player/DieL"), 7)},
-      };
+      
       bgGame = Content.Load<Texture2D>("Background/testGamePlay");
       bgAccueil = Content.Load<Texture2D>("Background/bg_accueil");
       logoRetro2 = Content.Load<Texture2D>("logoRetro2");
@@ -113,7 +106,7 @@ namespace projet_MonoGame
         new Sprite(new Dictionary<string, Animation>()
         {
           { "WalkLeft", new Animation(Content.Load<Texture2D>("Player/RunL"), 8) },
-          { "WalkRight", new Animation(Content.Load<Texture2D>("Player/RunR"), 8) },
+          { "WalkRight", new Animation(Content.Load<Texture2D>("Monster/Sanglier_Run"), 8) },
           { "AttackLeft", new Animation(Content.Load<Texture2D>("Player/AttakL2"), 6) },
           { "AttackRight", new Animation(Content.Load<Texture2D>("Player/AttakR"), 6) },
           { "DieRight", new Animation(Content.Load<Texture2D>("Player/DieR"), 6)},

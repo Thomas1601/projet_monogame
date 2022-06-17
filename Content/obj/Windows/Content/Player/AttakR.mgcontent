@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/AttakR.png</SourceFile>
-  <SourceTime>2022-05-15T12:19:18.83063+02:00</SourceTime>
+  <SourceTime>2022-06-13T18:58:16.5313067+02:00</SourceTime>
   <DestFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Player/AttakR.xnb</DestFile>
-  <DestTime>2022-06-06T08:12:56.7490749+02:00</DestTime>
+  <DestTime>2022-06-13T18:59:35.4955076+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

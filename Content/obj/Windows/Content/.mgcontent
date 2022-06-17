@@ -12,6 +12,7 @@
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/gameplay_2.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/wall.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/logoRetro2.png</File>
+    <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Monster/Sanglier_Run.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Music/OST/Zelda_Main.mp3</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Music/OST/Zelda_OST.mp3</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Music/SoundEffect/Jump.wav</File>
@@ -31,6 +32,7 @@
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/RunR.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

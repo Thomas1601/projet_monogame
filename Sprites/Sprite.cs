@@ -53,6 +53,7 @@ namespace projet_MonoGame.Sprites
       }
     }
 
+
     public float Speed = 4.2f;
 
     public Vector2 Velocity;
@@ -139,7 +140,6 @@ namespace projet_MonoGame.Sprites
       }
       else _animationManager.Stop();
     }
-
     public Sprite(Dictionary<string, Animation> animations)
     {
       _animations = animations;

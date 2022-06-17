@@ -235,3 +235,4 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\wall.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.csproj.AssemblyReference.cache
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Monster\Sanglier_Run.xnb

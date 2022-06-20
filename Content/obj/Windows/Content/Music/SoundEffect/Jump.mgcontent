@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Music/SoundEffect/Jump.wav</SourceFile>
-  <SourceTime>2022-05-15T15:11:45.3736238+02:00</SourceTime>
-  <DestFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Music/SoundEffect/Jump.xnb</DestFile>
-  <DestTime>2022-06-06T08:12:56.6140754+02:00</DestTime>
+  <SourceFile>C:/Users/jules/Desktop/Efficom/Projet_Monogame/projet_monogame/Content/Music/SoundEffect/Jump.wav</SourceFile>
+  <SourceTime>2022-06-20T14:37:28.666817+02:00</SourceTime>
+  <DestFile>C:/Users/jules/Desktop/Efficom/Projet_Monogame/projet_monogame/Content/bin/Windows/Content/Music/SoundEffect/Jump.xnb</DestFile>
+  <DestTime>2022-06-20T14:38:28.3461753+02:00</DestTime>
   <Importer>WavImporter</Importer>
-  <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
+  <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
-  <ProcessorTime>2020-08-10T16:17:54+02:00</ProcessorTime>
+  <ProcessorTime>2020-08-10T18:17:54+02:00</ProcessorTime>
   <Parameters>
     <Key>Quality</Key>
     <Value>Best</Value>

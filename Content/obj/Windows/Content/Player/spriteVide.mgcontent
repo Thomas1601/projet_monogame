@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/jules/Desktop/Efficom/Projet_Monogame/projet_monogame/Content/Background/wall.png</SourceFile>
-  <SourceTime>2022-06-20T14:37:28.6238158+02:00</SourceTime>
-  <DestFile>C:/Users/jules/Desktop/Efficom/Projet_Monogame/projet_monogame/Content/bin/Windows/Content/Background/wall.xnb</DestFile>
-  <DestTime>2022-06-20T14:38:23.226175+02:00</DestTime>
+  <SourceFile>C:/Users/jules/Desktop/Efficom/Projet_Monogame/projet_monogame/Content/Player/spriteVide.png</SourceFile>
+  <SourceTime>2022-06-20T16:28:53.2744196+02:00</SourceTime>
+  <DestFile>C:/Users/jules/Desktop/Efficom/Projet_Monogame/projet_monogame/Content/bin/Windows/Content/Player/spriteVide.xnb</DestFile>
+  <DestTime>2022-06-20T16:30:32.9164422+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

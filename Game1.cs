@@ -22,7 +22,8 @@ namespace projet_MonoGame
     private SpriteBatch _spriteBatch;
 
     private List<Sprite> _sprites;
-    private List<Sprite> _spritesMonster;
+
+    private List<Sprite> _spritesEmpty;
     Dictionary<string, string> listMap = new Dictionary<string, string>();
     public Vector2 posMap1 = new Vector2(100, 550);
     public Vector2 posEndMap1 = new Vector2(1100,550);
@@ -106,8 +107,8 @@ namespace projet_MonoGame
         new Sprite(new Dictionary<string, Animation>()
         {
           { "WalkLeft", new Animation(Content.Load<Texture2D>("Player/RunL"), 8) },
-          { "WalkRight", new Animation(Content.Load<Texture2D>("Monster/Sanglier_Run"), 8) },
-          { "AttackLeft", new Animation(Content.Load<Texture2D>("Player/AttakL2"), 6) },
+          { "WalkRight", new Animation(Content.Load<Texture2D>("Player/RunR"), 8) },
+          { "AttackLeft", new Animation(Content.Load<Texture2D>("Player/AttakL2"), 6)},
           { "AttackRight", new Animation(Content.Load<Texture2D>("Player/AttakR"), 6) },
           { "DieRight", new Animation(Content.Load<Texture2D>("Player/DieR"), 6)},
           { "DieLeft", new Animation(Content.Load<Texture2D>("Player/DieL"), 6)},
@@ -124,6 +125,31 @@ namespace projet_MonoGame
           },
         },
       };
+
+      _spritesEmpty = new List<Sprite>()
+      {
+        new Sprite(new Dictionary<string, Animation>()
+        {
+          { "WalkLeft", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 8) },
+          { "WalkRight", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 8) },
+          { "AttackLeft", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 6)},
+          { "AttackRight", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 6) },
+          { "DieRight", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 6)},
+          { "DieLeft", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 6)},
+        })
+        {
+          Position = new Vector2(50, ground),
+          Input = new Input()
+          {
+            Left = Keys.Q,
+            Right = Keys.D,
+            Up = Keys.Space,
+            A = Keys.A,
+            E = Keys.E,
+          },
+        },
+      };
+
       initMap();
     }
 
@@ -179,6 +205,10 @@ namespace projet_MonoGame
         }
         case GameState.GamePlay:
         { 
+          if(_sprites[0].Position.X >= windowWidth-50 && curMap == 2){
+        _sprites = _spritesEmpty;
+        lifeBar.Dispose();
+        }
           if(_sprites[0].Position.X >= windowWidth-50 && curMap < 2){
             bgGame = Content.Load<Texture2D>("Background/gameplay_2");
             if(curMap == 1){

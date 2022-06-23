@@ -303,3 +303,4 @@ C:\Users\jules\Desktop\Efficom\Projet_Monogame\projet_monogame\obj\Debug\netcore
 C:\Users\jules\Desktop\Efficom\Projet_Monogame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.pdb
 C:\Users\jules\Desktop\Efficom\Projet_Monogame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.genruntimeconfig.cache
 C:\Users\jules\Desktop\Efficom\Projet_Monogame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\spriteVide.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\spriteVide.xnb

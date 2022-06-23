@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/jules/Desktop/Efficom/Projet_Monogame/projet_monogame/Content/Player/spriteVide.png</SourceFile>
-  <SourceTime>2022-06-20T16:28:53.2744196+02:00</SourceTime>
-  <DestFile>C:/Users/jules/Desktop/Efficom/Projet_Monogame/projet_monogame/Content/bin/Windows/Content/Player/spriteVide.xnb</DestFile>
-  <DestTime>2022-06-20T16:30:32.9164422+02:00</DestTime>
+  <SourceFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/spriteVide.png</SourceFile>
+  <SourceTime>2022-06-23T08:06:42.5699768+02:00</SourceTime>
+  <DestFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Player/spriteVide.xnb</DestFile>
+  <DestTime>2022-06-23T08:07:38.9700617+02:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
+  <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2020-08-10T18:17:54+02:00</ProcessorTime>
+  <ProcessorTime>2020-08-10T16:17:54+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

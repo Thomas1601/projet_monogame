@@ -310,5 +310,5 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Monster\Golem_walk_L.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Monster\Golem_walk_R.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\AnimAttack\impactL.xnb
-C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\AnimAttack\impactR.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\forest_stone.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\forest_2.xnb

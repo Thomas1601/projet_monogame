@@ -44,7 +44,7 @@ namespace projet_MonoGame.Sprites
     }
 
 
-    public float Speed = 2.5f;
+    public float Speed = 10.0f;
 
     #endregion
     

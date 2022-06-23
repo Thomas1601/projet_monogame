@@ -6,6 +6,7 @@
   <SourceFiles>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/bg.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/bg_accueil.jpg</File>
+    <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/forest_2.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/forest_stone.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/full_life.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/gameplay_1.jpg</File>
@@ -24,7 +25,6 @@
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Music/SoundEffect/Jump.wav</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Music/SoundEffect/Sword.wav</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/AnimAttack/impactL.png</File>
-    <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/AnimAttack/impactR.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/AttakL2.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/AttakR.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Player/DieL.png</File>

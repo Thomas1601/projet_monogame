@@ -60,7 +60,6 @@ namespace projet_MonoGame
     public string curSong = "";
     public int time = 0;
     List<SoundEffect> soundEffects;
-    public Vector2 position = new Vector2(0, 0);
     private GameState _gameState = GameState.MainMenu;
     public Game1()
     {
@@ -156,8 +155,8 @@ namespace projet_MonoGame
       {
         new SpriteAnimation(new Dictionary<string, Animation>()
         {
-          { "AnimL", new Animation(Content.Load<Texture2D>("Player/AnimAttack/impactL"), 6) },
-          { "AnimR", new Animation(Content.Load<Texture2D>("Player/AnimAttack/impactR"), 6) },
+          { "AnimL", new Animation(Content.Load<Texture2D>("Player/AnimAttack/impactL"), 7) },
+          { "AnimR", new Animation(Content.Load<Texture2D>("Player/AnimAttack/impactL"), 7) },
         }, "LEFT")
         {
           Position = new Vector2(_sprites[0].Position.X-10, ground-15),
@@ -227,12 +226,12 @@ namespace projet_MonoGame
     }
 
 
-    void runAnimation()
+    void runAnimation(Vector2 posTmp)
     {
       distance = -1;
       if(curMap == 1)
       {
-        if(this.direction == "R")
+        if(direction == "R")
         {
           distance = (int)_spritesSanglier[0].Position.X - (int)_sprites[0].Position.X;
         }
@@ -240,16 +239,14 @@ namespace projet_MonoGame
         {
           distance = (int)_sprites[0].Position.X - (int)_spritesSanglier[0].Position.X;
         }
-        if(distance <= 20 && distance >= 0)
+        if(distance <= 15 && distance >= 0)
         {
           if(direction == "R")
           {
-            posTmp = new Vector2(_spritesSanglier[0].Position.X, _spritesSanglier[0].Position.Y - 40);
             _spritesAnimation[0].direction = "RIGHT";
           }
-          else
+          else if(direction =="L")
           {
-            posTmp = new Vector2(_spritesSanglier[0].Position.X, _spritesSanglier[0].Position.Y - 40);
             _spritesAnimation[0].direction = "LEFT";
           }
           _spritesAnimation[0].Position = posTmp;
@@ -257,7 +254,7 @@ namespace projet_MonoGame
       }
       else if(curMap == 2)
       {
-        if(this.direction == "R")
+        if(direction == "R")
         {
           distance = (int)_spritesGolem[0].Position.X - (int)_sprites[0].Position.X;
         }
@@ -267,7 +264,17 @@ namespace projet_MonoGame
         }
         if(distance <= 20 && distance >= 0)
         {
-          
+          if(direction == "R")
+          {
+            posTmp = new Vector2(_spritesGolem[0].Position.X, _spritesGolem[0].Position.Y - 40);
+            _spritesAnimation[0].direction = "RIGHT";
+          }
+          else
+          {
+            posTmp = new Vector2(_spritesGolem[0].Position.X, _spritesGolem[0].Position.Y - 40);
+            _spritesAnimation[0].direction = "LEFT";
+          }
+          _spritesAnimation[0].Position = posTmp;
         }
       }
     }
@@ -356,31 +363,26 @@ namespace projet_MonoGame
             else
               jumpTime += 1;
           }
-          if(compteurAttack > 0 && compteurAttack < 7)
-          {
-            compteurAttack += 1;
-            runAnimation();
-            _spritesAnimation[0].Update(gameTime, _spritesAnimation);
-          }
-          else if(state.IsKeyDown(Keys.A) && compteurAttack < 7)
+          
+          if(state.IsKeyDown(Keys.A) && compteurAttack < 8)
           {
             if(compteurAttack == 0)
             {
-              compteurAttack = 1;
+              posTmp = new Vector2(_spritesSanglier[0].Position.X, _spritesSanglier[0].Position.Y - 35);
             }
-            else
-            {
-              compteurAttack += 1;
-            }
-            runAnimation();
+            compteurAttack += 1;
+            runAnimation(posTmp);
             _spritesAnimation[0].Update(gameTime, _spritesAnimation);
           }
-          else
+          else if(compteurAttack > 0 && compteurAttack < 8)
           {
-            if(compteurAttack > 6)
-            {
-              _spritesAnimation[0].direction = "None";
-            }
+            compteurAttack += 1;
+            runAnimation(posTmp);
+            _spritesAnimation[0].Update(gameTime, _spritesAnimation);
+          }
+          if(compteurAttack > 7)
+          {
+            _spritesAnimation[0].direction = "None";
             compteurAttack = 0;
           }
           if(state.IsKeyDown(Keys.A) && attackTime == 0){

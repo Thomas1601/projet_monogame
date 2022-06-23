@@ -61,18 +61,6 @@
 /processorParam:TextureFormat=Color
 /build:Background/forest_stone.png
 
-#begin Background/forest_stone.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Background/forest_stone.png
-
 #begin Background/full_life.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -108,6 +96,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Background/gameplay_2.png
+
+#begin Background/Waterfall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Background/Waterfall.png
 
 #begin logoRetro2.png
 /importer:TextureImporter
@@ -240,6 +240,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Music/SoundEffect/Sword.wav
+
+#begin Music/SoundEffect/Waterfall.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Music/SoundEffect/Waterfall.wav
 
 #begin Player/AnimAttack/impactL.png
 /importer:TextureImporter

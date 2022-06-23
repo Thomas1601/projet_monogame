@@ -27,12 +27,16 @@ namespace projet_MonoGame
 
     private List<SpriteAnimation> _spritesAnimation;
 
+    private List<SpriteAnimation> _spritesCascade;
+
     private List<SpriteMonster> _spritesGolem;
 
     private List<Sprite> _spritesEmpty;
 
-    public Input Input;
+    private int compteurCascade;
+
     public int ground = 550;
+    public string runCascade = "N";
     public Vector2 posMap1 = new Vector2(100, 550);
     public Vector2 posEndMap1 = new Vector2(1100, 550);
     public Vector2 posMap2 = new Vector2(100, 550);
@@ -110,7 +114,8 @@ namespace projet_MonoGame
       MediaPlayer.IsRepeating = true;
       soundEffects.Add(Content.Load<SoundEffect>("Music/SoundEffect/Jump"));
       soundEffects.Add(Content.Load<SoundEffect>("Music/SoundEffect/Sword"));
-      SoundEffect.MasterVolume = 0.2f;
+      soundEffects.Add(Content.Load<SoundEffect>("Music/SoundEffect/Waterfall"));
+      SoundEffect.MasterVolume = 0.04f;
       //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
 
       _sprites = new List<Sprite>()
@@ -163,6 +168,18 @@ namespace projet_MonoGame
         },
       };
 
+      _spritesCascade = new List<SpriteAnimation>()
+      {
+        new SpriteAnimation(new Dictionary<string, Animation>()
+        {
+          { "AnimL", new Animation(Content.Load<Texture2D>("Background/Waterfall"), 9) },
+          { "AnimR", new Animation(Content.Load<Texture2D>("Background/Waterfall"), 9) },
+        }, "LEFT")
+        {
+          Position = new Vector2(200, ground-120),
+        },
+      };
+
       _spritesGolem = new List<SpriteMonster>()
       {
         new SpriteMonster(new Dictionary<string, Animation>()
@@ -203,7 +220,7 @@ namespace projet_MonoGame
     }
 
 
-    void majMonster()
+    void UpdateMonster()
     {
       if(curMap == 1)
       {
@@ -325,7 +342,11 @@ namespace projet_MonoGame
         }
         case GameState.GamePlay:
         { 
-          majMonster();
+          if(curMap == 1)
+          {
+            _spritesCascade[0].Update(gameTime, _spritesCascade);
+          }
+          UpdateMonster();
           if(state.IsKeyDown(Keys.D))
           {
             direction = "R";
@@ -446,13 +467,33 @@ namespace projet_MonoGame
                 {
                   spriteBatch.Begin();
                   spriteBatch.Draw(bgGame, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
+                  if(curMap == 1)
+                  {
+                    foreach (var sprite in _spritesCascade)
+                      sprite.Draw(spriteBatch);
+                  }
                   foreach (var sprite in _sprites)
                     sprite.Draw(spriteBatch);
                   if(curMap == 1){
+                    if(runCascade == "N")
+                    {
+                      soundEffects[2].CreateInstance().Play();
+                      runCascade = "Y";
+                    }
+                    else
+                    {
+                      compteurCascade +=1;
+                    }
+                    if(compteurCascade >=3400)
+                    {
+                      runCascade = "N";
+                      compteurCascade = 0;
+                    }
                     foreach (var sprite in _spritesSanglier)
                       sprite.Draw(spriteBatch);
                   }
                   else if(curMap == 2){
+                    runCascade = "N";
                     foreach (var sprite in _spritesGolem)
                       sprite.Draw(spriteBatch);
                   }

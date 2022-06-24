@@ -47,10 +47,7 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\bg.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\testGamePlay.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\logoRetro2.xnb
-C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\AttakL2.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\Knight.xnb
-C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\RunL.xnb
-C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\RunR.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\projet_monogame.exe
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\projet_monogame.deps.json
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\projet_monogame.runtimeconfig.json
@@ -84,7 +81,6 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.csproj.CoreCompileInputs.cache
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.csproj.CopyComplete
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\obj\Debug\netcoreapp3.1\projet_monogame.genruntimeconfig.cache
-C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\AttakR.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\DieL.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\DieR.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\full_life.xnb
@@ -314,3 +310,9 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\forest_2.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Music\SoundEffect\Waterfall.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\Waterfall.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Music\SoundEffect\Hurt.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Music\SoundEffect\Die.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\attackL.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\attackR.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\walkL.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\walkR.xnb

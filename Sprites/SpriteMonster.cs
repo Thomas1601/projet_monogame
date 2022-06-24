@@ -25,6 +25,8 @@ namespace projet_MonoGame.Sprites
 
     public string direction { get; set; }
 
+    public float Speed { get; set; } = 4.2f;
+
     protected Texture2D _texture;
 
     #endregion
@@ -44,7 +46,7 @@ namespace projet_MonoGame.Sprites
     }
 
 
-    public float Speed = 4.2f;
+    
 
     public Vector2 Velocity;
 

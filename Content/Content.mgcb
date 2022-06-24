@@ -229,6 +229,18 @@
 /processorParam:Quality=Best
 /build:Music/OST/Zelda_OST.mp3
 
+#begin Music/SoundEffect/Die.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Music/SoundEffect/Die.wav
+
+#begin Music/SoundEffect/Hurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Music/SoundEffect/Hurt.wav
+
 #begin Music/SoundEffect/Jump.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -259,7 +271,7 @@
 /processorParam:TextureFormat=Color
 /build:Player/AnimAttack/impactL.png
 
-#begin Player/AttakL2.png
+#begin Player/attackL.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -269,9 +281,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Player/AttakL2.png
+/build:Player/attackL.png
 
-#begin Player/AttakR.png
+#begin Player/attackR.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -281,7 +293,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Player/AttakR.png
+/build:Player/attackR.PNG
+
+#begin Player/attackR.PNG
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Player/attackR.PNG
 
 #begin Player/DieL.png
 /importer:TextureImporter
@@ -391,30 +415,6 @@
 /processorParam:TextureFormat=Color
 /build:Player/life/semi_low.png
 
-#begin Player/RunL.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Player/RunL.png
-
-#begin Player/RunR.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Player/RunR.png
-
 #begin Player/spriteVide.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -426,4 +426,28 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Player/spriteVide.png
+
+#begin Player/walkL.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Player/walkL.png
+
+#begin Player/walkR.PNG
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Player/walkR.PNG
 

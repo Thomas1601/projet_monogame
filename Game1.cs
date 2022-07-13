@@ -164,7 +164,7 @@ namespace projet_MonoGame
           Position = new Vector2(1100, ground-15),
         },
       };
-      _spritesSanglier[0].Speed = 6.0f;
+      _spritesSanglier[0].Speed = 5.8f;
 
       _spritesAnimation = new List<SpriteAnimation>()
       {

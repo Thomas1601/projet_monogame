@@ -79,13 +79,18 @@ namespace projet_MonoGame
     public Texture2D logoRetro2;
     public Texture2D knight;
     public Texture2D bgGame;
-    public Texture2D bgTest;
+    public Texture2D btnPlay;
+    public Texture2D btnCmd;
+    public Texture2D bgCmd;
+    public Texture2D btnQuit;
+    public int cptBtn = 0;
     public int curMap = 0;
     public string direction;
     public Texture2D lifeBar;
     public int logoWidth = 300;
     public int logoHeight = 150;
     public int lifeWidth = 100;
+    public string curBtn = "PLAY";
     public int lifeHeight = 25;
     public int compteurAttack = 0;
     public Song song;
@@ -136,9 +141,13 @@ namespace projet_MonoGame
       bgGame = Content.Load<Texture2D>("Background/bg_waterbridge");
       bgAccueil = Content.Load<Texture2D>("Background/bg_accueil");
       bgDied = Content.Load<Texture2D>("Background/youdied");
+      bgCmd = Content.Load<Texture2D>("Background/MenuCmd");
       logoRetro2 = Content.Load<Texture2D>("logoRetro2");
       knight = Content.Load<Texture2D>("Player/Knight");
       lifeBar = Content.Load<Texture2D>("Player/life/full_life");
+      btnPlay = Content.Load<Texture2D>("Background/btnPlayFocus");
+      btnCmd = Content.Load<Texture2D>("Background/btnCmd");
+      btnQuit = Content.Load<Texture2D>("Background/btnQuit");
       song = Content.Load<Song>("Music/OST/Zelda_OST");
       songIntro = Content.Load<Song>("Music/OST/Zelda_Main");
       MediaPlayer.Volume = 0.2f;
@@ -430,7 +439,7 @@ namespace projet_MonoGame
       if(curMap == 1)
       {
         var nTmp = Distance(realPositionSanglier, realPosition);
-        if(nTmp < 40.0 && lpSanglier > 0)
+        if(nTmp < 50.0 && lpSanglier > 0)
         {
           if(state.IsKeyDown(Keys.A)){
             if(cptHit == 0)
@@ -594,12 +603,68 @@ namespace projet_MonoGame
             curSong = "MainMenu";
           }
         if(state.IsKeyDown(Keys.Space)){
-          curMap = 1;
+          if(curBtn == "PLAY")
+          {
+            curMap = 1;
           _gameState = GameState.GamePlay;
           Replay();
+          }
+          else if(curBtn == "CMD")
+          {
+            _gameState = GameState.GameCmd;
+          }
+          else if(curBtn == "QUIT")
+          {
+            Exit();
+          }
         }
-        if (state.IsKeyDown(Keys.Escape) && time >= 60){
-          Exit();
+        if(cptBtn > 0)
+        {
+          cptBtn-=1;
+        }
+        if(state.IsKeyDown(Keys.Z) && cptBtn == 0)
+        {
+          cptBtn = 20;
+          if(curBtn == "PLAY")
+          {
+            curBtn = "QUIT";
+            btnQuit = Content.Load<Texture2D>("Background/btnQuitFocus");
+            btnPlay = Content.Load<Texture2D>("Background/btnPlay");
+          }
+          else if(curBtn == "CMD")
+          {
+            curBtn = "PLAY";
+            btnPlay = Content.Load<Texture2D>("Background/btnPlayFocus");
+            btnCmd = Content.Load<Texture2D>("Background/btnCmd");
+          }
+          else if(curBtn == "QUIT")
+          {
+            curBtn = "CMD";
+            btnCmd = Content.Load<Texture2D>("Background/btnCmdFocus");
+            btnQuit = Content.Load<Texture2D>("Background/BtnQuit");
+          }
+        }
+        if(state.IsKeyDown(Keys.S) && cptBtn == 0)
+        {
+          cptBtn = 20;
+          if(curBtn == "PLAY")
+          {
+            curBtn = "CMD";
+            btnCmd = Content.Load<Texture2D>("Background/btnCmdFocus");
+            btnPlay = Content.Load<Texture2D>("Background/btnPlay");
+          }
+          else if(curBtn == "CMD")
+          {
+            curBtn = "QUIT";
+            btnQuit = Content.Load<Texture2D>("Background/btnQuitFocus");
+            btnCmd = Content.Load<Texture2D>("Background/btnCmd");
+          }
+          else if(curBtn == "QUIT")
+          {
+            curBtn = "PLAY";
+            btnPlay = Content.Load<Texture2D>("Background/btnPlayFocus");
+            btnQuit = Content.Load<Texture2D>("Background/BtnQuit");
+          }
         }
           break;
         }
@@ -621,6 +686,14 @@ namespace projet_MonoGame
             MediaPlayer.Play(songIntro);
             curSong = "GameDie";
           }
+          if(state.IsKeyDown(Keys.Escape))
+          {
+            _gameState = GameState.MainMenu;
+          }
+          break;
+        }
+        case GameState.GameCmd:
+        {
           if(state.IsKeyDown(Keys.Escape))
           {
             _gameState = GameState.MainMenu;
@@ -658,7 +731,7 @@ namespace projet_MonoGame
           }
           if(curMap == 1 && lpSanglier > 0)
           {
-            realPositionSanglier = new Vector2((int)Math.Truncate(_spritesSanglier[0].Position.X)+70, (int)Math.Truncate(_spritesSanglier[0].Position.Y)+45);
+            realPositionSanglier = new Vector2((int)Math.Truncate(_spritesSanglier[0].Position.X)+70, (int)Math.Truncate(_spritesSanglier[0].Position.Y)+50);
           }
           else if(curMap == 2 && lpGolem > 0)
           {
@@ -822,7 +895,9 @@ namespace projet_MonoGame
                 {
                     _spriteBatch.Begin();
                     _spriteBatch.Draw(bgAccueil, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
-                    //_spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2)+150,logoWidth ,logoHeight), Color.White);
+                    _spriteBatch.Draw(btnCmd, new Rectangle((windowWidth/2)-(logoWidth/2)+75 , (windowHeight/2)-(logoHeight/2),200 ,42), Color.White);
+                    _spriteBatch.Draw(btnQuit, new Rectangle(windowWidth-180, 4*(windowHeight/5),115 ,35), Color.White);
+                    _spriteBatch.Draw(btnPlay, new Rectangle((windowWidth/2)-(logoWidth/2)+75 , (windowHeight/2)-(logoHeight/2)-150,200 ,45), Color.White);
                     _spriteBatch.End();
                     base.Draw(gameTime);
                     break;
@@ -832,6 +907,14 @@ namespace projet_MonoGame
                     _spriteBatch.Begin();
                     _spriteBatch.Draw(bgDied, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
                     //_spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2)+150,logoWidth ,logoHeight), Color.White);
+                    _spriteBatch.End();
+                    base.Draw(gameTime);
+                    break;
+                }
+                case GameState.GameCmd:
+                {
+                    _spriteBatch.Begin();
+                    _spriteBatch.Draw(bgCmd, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
                     _spriteBatch.End();
                     base.Draw(gameTime);
                     break;

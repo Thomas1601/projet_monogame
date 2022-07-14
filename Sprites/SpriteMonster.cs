@@ -71,6 +71,10 @@ namespace projet_MonoGame.Sprites
       else if (direction == "RIGHT"){
         Velocity.X = Speed;
       }
+      else if (direction == "ATTACK")
+      {
+        Velocity.X = 0.0f;
+      }
       //if (Keyboard.GetState().IsKeyDown(Input.Up))
       //  Velocity.Y = -2*Speed;
       //if(Keyboard.GetState().IsKeyDown(Input.A)){
@@ -81,12 +85,17 @@ namespace projet_MonoGame.Sprites
 
     protected virtual void SetAnimations()
     {
-      if (Velocity.X > 0){
+      if(direction == "ATTACK")
+      {
+        _animationManager.Play(_animations["AttackLeft"]);
+      }
+      else if (Velocity.X > 0){
         _animationManager.Play(_animations["WalkRight"]);
       }
       else if (Velocity.X < 0){
         _animationManager.Play(_animations["WalkLeft"]);
       }
+      
       //else if (dieR == "Y"){
       //  _animationManager.Play(_animations["DieRight"]);
       //}

@@ -8,6 +8,7 @@ using projet_MonoGame.Models;
 using projet_MonoGame.Sprites;
 using System;
 using System.IO;
+using System.Text;
 
 namespace projet_MonoGame
 {
@@ -22,6 +23,8 @@ namespace projet_MonoGame
     private SpriteBatch _spriteBatch;
 
     private List<Sprite> _sprites;
+
+    private List<SpriteAnimation> _spritesRock;
 
     private int cptImmune = 100;
 
@@ -41,12 +44,17 @@ namespace projet_MonoGame
 
     private int cptMort = 50;
 
+    private int cptAttackGolem = 0;
+
+    private int cptGolem = 0;
+
     private Vector2 realPosition;
 
     private int lifePoints = 5; 
     private int lpSanglier = 3;
     private int lpGolem = 5;
     private bool dead = false;
+    private bool rockThrown = false;
     private int compteurCascade;
     private SoundEffectInstance soundCascade;
     public int ground = 550;
@@ -55,7 +63,9 @@ namespace projet_MonoGame
     public Vector2 posEndMap1 = new Vector2(1100, 550);
     public Vector2 posMap2 = new Vector2(100, 550);
     public Vector2 posEndMap2 = new Vector2(1100, 550);
+    public Vector2 posRock;
     public Vector2 posTmp;
+    public Vector2 posTarget;
     public const int windowWidth = 1200;
     public const int windowHeight = 800;
     public int distance;
@@ -169,6 +179,7 @@ namespace projet_MonoGame
           { "WalkRight", new Animation(Content.Load<Texture2D>("Monster/Sanglier_Run"), 8) },
           { "DieRight", new Animation(Content.Load<Texture2D>("Monster/Sanglier_DieR"), 4)},
           { "DieLeft", new Animation(Content.Load<Texture2D>("Monster/Sanglier_DieL"), 4)},
+          { "AttackLeft", new Animation(Content.Load<Texture2D>("Monster/Sanglier_DieL"), 4)},
         })
         {
           Position = new Vector2(1100, ground-15),
@@ -184,6 +195,7 @@ namespace projet_MonoGame
           { "WalkRight", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 8) },
           { "DieRight", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 8)},
           { "DieLeft", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 8)},
+          { "AttackLeft", new Animation(Content.Load<Texture2D>("Monster/Sanglier_DieL"), 4)},
         })
         {
           Position = new Vector2(1100, ground-15),
@@ -198,7 +210,7 @@ namespace projet_MonoGame
           { "AnimR", new Animation(Content.Load<Texture2D>("Background/Waterfall"), 9) },
         }, "LEFT")
         {
-          Position = new Vector2(400, ground-200),
+          Position = new Vector2(425, ground-285),
         },
       };
 
@@ -210,12 +222,13 @@ namespace projet_MonoGame
           { "WalkRight", new Animation(Content.Load<Texture2D>("Monster/Golem_walk_R"), 11) },
           { "DieRight", new Animation(Content.Load<Texture2D>("Monster/Golem_die_R"), 5)},
           { "DieLeft", new Animation(Content.Load<Texture2D>("Monster/Golem_die_L"), 5)},
+          { "AttackLeft", new Animation(Content.Load<Texture2D>("Monster/attackLGolem"), 7)},
         })
         {
           Position = new Vector2(1100, ground-13),
         },
       };
-      _spritesGolem[0].Speed = 2.3f;
+      _spritesGolem[0].Speed = 2.0f;
 
       _spritesEmpty = new List<Sprite>()
       {
@@ -245,7 +258,7 @@ namespace projet_MonoGame
 
     void UpdateMonster()
     {
-      if(curMap == 1)
+      if(curMap == 1 && lpSanglier > 0)
       {
         if(_spritesSanglier[0].Position.X <= 600){
           _spritesSanglier[0].direction = "RIGHT";
@@ -254,15 +267,62 @@ namespace projet_MonoGame
           _spritesSanglier[0].direction = "LEFT";
         }
       }
-      else if (curMap == 2)
+      else if (curMap == 2 && lpGolem > 0)
       {
-        if(_spritesGolem[0].Position.X <= 600){
+        var nTmp = Distance(_spritesGolem[0].Position, _sprites[0].Position);
+        //StreamWriter sw = new StreamWriter("C:\\Users\\Jules\\Desktop\\Test.txt", true, Encoding.ASCII);
+        //Write a line of text
+        // var dir = "distance : "+nTmp+" diretion : "+_spritesGolem[0].direction+" cptAttackGolem : "+cptAttackGolem+" cptGolem : "+cptGolem+" position : "+_spritesGolem[0].Position.X+" \n";
+        //sw.Write(dir);
+        
+        
+        if(cptAttackGolem > 0)
+        {
+          cptAttackGolem-=1;
+        }
+        if(cptGolem > 0)
+        {
+          _spritesGolem[0].direction = "ATTACK";
+          cptGolem -= 1;
+        }
+        else if(nTmp < 400.0 && _spritesGolem[0].direction == "LEFT" && cptAttackGolem == 0)
+        {
+          _spritesGolem[0].direction = "ATTACK";
+          cptAttackGolem = 220;
+          cptGolem = 35;
+          ThrowRock();
+        }
+        else if(_spritesGolem[0].Position.X <= 800){
           _spritesGolem[0].direction = "RIGHT";
         }
         else if(_spritesGolem[0].Position.X >= 1101){
           _spritesGolem[0].direction = "LEFT";
         }
+        else if(_spritesGolem[0].direction == "ATTACK")
+        {
+          _spritesGolem[0].direction = "RIGHT";
+        }
       }
+    }
+
+    void ThrowRock()
+    {
+      rockThrown = true;
+      posRock = new Vector2((int)_spritesGolem[0].Position.X,(int)_spritesGolem[0].Position.Y-10);
+      posTarget = realPosition;
+
+      _spritesRock = new List<SpriteAnimation>()
+      {
+        new SpriteAnimation(new Dictionary<string, Animation>()
+        {
+          { "AnimL", new Animation(Content.Load<Texture2D>("Monster/stoneL"), 7) },
+          { "AnimR", new Animation(Content.Load<Texture2D>("Monster/stoneL"), 7) },
+        }, "LEFT")
+        {
+          Position = posRock,
+        },
+      };
+
     }
 
     void Dead(string dir)
@@ -370,7 +430,7 @@ namespace projet_MonoGame
       KeyboardState state = Keyboard.GetState();
       if(curMap == 1)
       {
-        var nTmp = Distance(_spritesSanglier[0].Position, _sprites[0].Position);
+        var nTmp = Distance(_spritesSanglier[0].Position, realPosition);
         if(nTmp < 30.0 && lpSanglier > 0)
         {
           if(state.IsKeyDown(Keys.A)){
@@ -384,7 +444,7 @@ namespace projet_MonoGame
       }
       else if(curMap == 2)
       {
-        var nTmp = Distance(_spritesGolem[0].Position, _sprites[0].Position);
+        var nTmp = Distance(_spritesGolem[0].Position, realPosition);
         if(nTmp < 30.0 && lpGolem > 0)
         {
           if(state.IsKeyDown(Keys.A)){
@@ -418,6 +478,7 @@ namespace projet_MonoGame
           { "WalkRight", new Animation(Content.Load<Texture2D>("Monster/Sanglier_Run"), 8) },
           { "DieRight", new Animation(Content.Load<Texture2D>("Monster/Sanglier_DieR"), 4)},
           { "DieLeft", new Animation(Content.Load<Texture2D>("Monster/Sanglier_DieL"), 4)},
+          { "AttackLeft", new Animation(Content.Load<Texture2D>("Monster/attackLGolem"), 7)},
         })
         {
           Position = new Vector2(1100, ground-15),
@@ -457,12 +518,13 @@ namespace projet_MonoGame
           { "WalkRight", new Animation(Content.Load<Texture2D>("Monster/Golem_walk_R"), 11) },
           { "DieRight", new Animation(Content.Load<Texture2D>("Monster/Golem_die_R"), 5)},
           { "DieLeft", new Animation(Content.Load<Texture2D>("Monster/Golem_die_L"), 5)},
+          { "AttackLeft", new Animation(Content.Load<Texture2D>("Monster/attackLGolem"), 7)},
         })
         {
           Position = new Vector2(1100, ground-13),
         },
       };
-      _spritesGolem[0].Speed = 2.3f;
+      _spritesGolem[0].Speed = 2.0f;
     }
 
     void IsDamaged()
@@ -483,7 +545,17 @@ namespace projet_MonoGame
       }
       else if(curMap == 2)
       {
-
+        if(rockThrown == true)
+        {
+        var nTmp = Distance(_spritesRock[0].Position, realPosition);
+        if(nTmp < 25.0 && lpGolem > 0)
+        {
+          if(! state.IsKeyDown(Keys.E)){
+            DecreaseLifebar();
+            rockThrown = false;
+          }
+        }
+        }
       }
     }
 
@@ -558,15 +630,42 @@ namespace projet_MonoGame
         }
         case GameState.GamePlay:
         { 
+          if(rockThrown == true)
+          {
+            var nX = posRock.X;
+            var nY = posRock.Y;
+            var nTargetX = posTarget.X;
+            var nTargetY = posTarget.Y;
+            if(nY >= ground+50)
+            {
+              rockThrown = false;
+            }
+            else if((nX - nTargetX)/8 > (nTargetY - nY))
+            {
+              nX = nX - 6;
+            }
+            else
+            {
+              nY = nY + 7;
+            }
+            posTmp = new Vector2((int)nX, (int)nY);
+            _spritesRock[0].Position = posTmp;
+            
+            //StreamWriter sw = new StreamWriter("C:\\Users\\Jules\\Desktop\\Test.txt", true, Encoding.ASCII);
+            //var dir = "posrock : "+(int)posRock.X+" "+(int)posRock.Y+" posTmp : "+(int)nX+" "+(int)nY+" posTarget : "+(int)posTarget.X+" "+(int)posTarget.Y+"\n";
+            //sw.Write(dir);
+
+            //close the file
+            //sw.Close();
+            posRock = posTmp;
+            _spritesRock[0].Update(gameTime, _spritesRock);
+          }
           if(cptHit > 0)
           {
             cptHit -= 1;
           }
-          if(state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Q))
-          {
-            realPosition = new Vector2(_sprites[0].Position.X+68, _sprites[0].Position.Y+25);
-          }
-          else if(state.IsKeyDown(Keys.A) && direction == "L")
+          realPosition = new Vector2((int)_sprites[0].Position.X+125, (int)_sprites[0].Position.Y+60);
+          if(state.IsKeyDown(Keys.A) && direction == "L")
           {
             if(curMap == 1 && lpSanglier > 0)
             {
@@ -749,7 +848,23 @@ namespace projet_MonoGame
                 case GameState.EndGame:
                 {
                   _spriteBatch.Begin();
-                  bgWin = Content.Load<Texture2D>("Background/realWin");
+                  if((lpGolem + lpSanglier) > 0)
+                  {
+                    if((lpGolem <= 0) || (lpSanglier <= 0))
+                    {
+                      bgWin = Content.Load<Texture2D>("Background/partialWin");
+                    }
+                    else
+                    {
+                      bgWin = Content.Load<Texture2D>("Background/falseWin");
+                    }
+                  }
+
+                  else if((lpGolem + lpSanglier) <= 0)
+                  {
+                    bgWin = Content.Load<Texture2D>("Background/realWin");
+                  }
+                  
                   _spriteBatch.Draw(bgWin, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
                     //_spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2)+150,logoWidth ,logoHeight), Color.White);
                   _spriteBatch.End();
@@ -793,7 +908,16 @@ namespace projet_MonoGame
                     }
                     
                   }
-                  else if(curMap == 2){
+                  else if(curMap == 2)
+                  {
+                    if(lpGolem > 0 && rockThrown == true)
+                    {
+                      foreach (var sprite in _spritesRock)
+                      {
+                        sprite.Draw(spriteBatch);
+                      }
+                        
+                    }
                     runCascade = "N";
                     foreach (var sprite in _spritesGolem)
                       sprite.Draw(spriteBatch);

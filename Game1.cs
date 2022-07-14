@@ -50,6 +50,10 @@ namespace projet_MonoGame
 
     private Vector2 realPosition;
 
+    private Vector2 realPositionGolem;
+
+    private Vector2 realPositionSanglier;
+
     private int lifePoints = 5; 
     private int lpSanglier = 3;
     private int lpGolem = 5;
@@ -75,6 +79,7 @@ namespace projet_MonoGame
     public Texture2D logoRetro2;
     public Texture2D knight;
     public Texture2D bgGame;
+    public Texture2D bgTest;
     public int curMap = 0;
     public string direction;
     public Texture2D lifeBar;
@@ -260,22 +265,16 @@ namespace projet_MonoGame
     {
       if(curMap == 1 && lpSanglier > 0)
       {
-        if(_spritesSanglier[0].Position.X <= 600){
+        if(realPositionSanglier.X <= 600){
           _spritesSanglier[0].direction = "RIGHT";
         }
-        else if(_spritesSanglier[0].Position.X >= 1101){
+        else if(realPositionSanglier.X >= 1101){
           _spritesSanglier[0].direction = "LEFT";
         }
       }
       else if (curMap == 2 && lpGolem > 0)
       {
-        var nTmp = Distance(_spritesGolem[0].Position, _sprites[0].Position);
-        //StreamWriter sw = new StreamWriter("C:\\Users\\Jules\\Desktop\\Test.txt", true, Encoding.ASCII);
-        //Write a line of text
-        // var dir = "distance : "+nTmp+" diretion : "+_spritesGolem[0].direction+" cptAttackGolem : "+cptAttackGolem+" cptGolem : "+cptGolem+" position : "+_spritesGolem[0].Position.X+" \n";
-        //sw.Write(dir);
-        
-        
+        var nTmp = Distance(realPositionGolem, realPosition);     
         if(cptAttackGolem > 0)
         {
           cptAttackGolem-=1;
@@ -292,10 +291,10 @@ namespace projet_MonoGame
           cptGolem = 35;
           ThrowRock();
         }
-        else if(_spritesGolem[0].Position.X <= 800){
+        else if(realPositionGolem.X <= 800){
           _spritesGolem[0].direction = "RIGHT";
         }
-        else if(_spritesGolem[0].Position.X >= 1101){
+        else if(realPositionGolem.X >= 1101){
           _spritesGolem[0].direction = "LEFT";
         }
         else if(_spritesGolem[0].direction == "ATTACK")
@@ -308,7 +307,7 @@ namespace projet_MonoGame
     void ThrowRock()
     {
       rockThrown = true;
-      posRock = new Vector2((int)_spritesGolem[0].Position.X,(int)_spritesGolem[0].Position.Y-10);
+      posRock = new Vector2((int)realPositionGolem.X,(int)realPositionGolem.Y-80);
       posTarget = realPosition;
 
       _spritesRock = new List<SpriteAnimation>()
@@ -430,8 +429,8 @@ namespace projet_MonoGame
       KeyboardState state = Keyboard.GetState();
       if(curMap == 1)
       {
-        var nTmp = Distance(_spritesSanglier[0].Position, realPosition);
-        if(nTmp < 30.0 && lpSanglier > 0)
+        var nTmp = Distance(realPositionSanglier, realPosition);
+        if(nTmp < 40.0 && lpSanglier > 0)
         {
           if(state.IsKeyDown(Keys.A)){
             if(cptHit == 0)
@@ -444,8 +443,8 @@ namespace projet_MonoGame
       }
       else if(curMap == 2)
       {
-        var nTmp = Distance(_spritesGolem[0].Position, realPosition);
-        if(nTmp < 30.0 && lpGolem > 0)
+        var nTmp = Distance(realPositionGolem, realPosition);
+        if(nTmp < 40.0 && lpGolem > 0)
         {
           if(state.IsKeyDown(Keys.A)){
             if(cptHit == 0)
@@ -532,8 +531,8 @@ namespace projet_MonoGame
       KeyboardState state = Keyboard.GetState();
       if(curMap == 1)
       {
-        var nTmp = Distance(_spritesSanglier[0].Position, _sprites[0].Position);
-        if(nTmp < 30.0 && lpSanglier > 0)
+        var nTmp = Distance(realPositionSanglier, realPosition);
+        if(nTmp < 40.0 && lpSanglier > 0)
         {
           if(! state.IsKeyDown(Keys.E)){
             if(! state.IsKeyDown(Keys.A))
@@ -548,7 +547,7 @@ namespace projet_MonoGame
         if(rockThrown == true)
         {
         var nTmp = Distance(_spritesRock[0].Position, realPosition);
-        if(nTmp < 25.0 && lpGolem > 0)
+        if(nTmp < 30.0 && lpGolem > 0)
         {
           if(! state.IsKeyDown(Keys.E)){
             DecreaseLifebar();
@@ -636,27 +635,20 @@ namespace projet_MonoGame
             var nY = posRock.Y;
             var nTargetX = posTarget.X;
             var nTargetY = posTarget.Y;
-            if(nY >= ground+50)
+            if(nY >= ground+60)
             {
               rockThrown = false;
             }
-            else if((nX - nTargetX)/8 > (nTargetY - nY))
+            else if((nX - nTargetX)/4 > (nTargetY - nY))
             {
-              nX = nX - 6;
+              nX = nX - 15;
             }
             else
             {
-              nY = nY + 7;
+              nY = nY + 5;
             }
             posTmp = new Vector2((int)nX, (int)nY);
             _spritesRock[0].Position = posTmp;
-            
-            //StreamWriter sw = new StreamWriter("C:\\Users\\Jules\\Desktop\\Test.txt", true, Encoding.ASCII);
-            //var dir = "posrock : "+(int)posRock.X+" "+(int)posRock.Y+" posTmp : "+(int)nX+" "+(int)nY+" posTarget : "+(int)posTarget.X+" "+(int)posTarget.Y+"\n";
-            //sw.Write(dir);
-
-            //close the file
-            //sw.Close();
             posRock = posTmp;
             _spritesRock[0].Update(gameTime, _spritesRock);
           }
@@ -664,19 +656,27 @@ namespace projet_MonoGame
           {
             cptHit -= 1;
           }
-          realPosition = new Vector2((int)_sprites[0].Position.X+125, (int)_sprites[0].Position.Y+60);
+          if(curMap == 1 && lpSanglier > 0)
+          {
+            realPositionSanglier = new Vector2((int)Math.Truncate(_spritesSanglier[0].Position.X)+70, (int)Math.Truncate(_spritesSanglier[0].Position.Y)+45);
+          }
+          else if(curMap == 2 && lpGolem > 0)
+          {
+            realPositionGolem = new Vector2((int)Math.Truncate(_spritesGolem[0].Position.X)+70, (int)Math.Truncate(_spritesGolem[0].Position.Y)+60);
+          }
+          realPosition = new Vector2((int)Math.Truncate(_sprites[0].Position.X)+125, (int)Math.Truncate(_sprites[0].Position.Y)+80);
           if(state.IsKeyDown(Keys.A) && direction == "L")
           {
             if(curMap == 1 && lpSanglier > 0)
             {
-              if(_sprites[0].Position.X > _spritesSanglier[0].Position.X)
+              if(realPosition.X > realPositionSanglier.X)
               {
                 Attack();
               }
             }
             if(curMap == 2 && lpGolem > 0)
             {
-              if(_sprites[0].Position.X > _spritesGolem[0].Position.X)
+              if(realPosition.X > realPositionGolem.X)
               {
                 Attack();
               }
@@ -687,29 +687,20 @@ namespace projet_MonoGame
           {
             if(curMap == 1 && lpSanglier > 0)
             {
-              if(_sprites[0].Position.X < _spritesSanglier[0].Position.X)
+              if(_sprites[0].Position.X < realPositionSanglier.X)
               {
                 Attack();
               }
             }
             if(curMap == 2 && lpGolem > 0)
             {
-              if(_sprites[0].Position.X < _spritesGolem[0].Position.X)
+              if(realPosition.X < realPositionGolem.X)
               {
                 Attack();
               }
             }
-            realPosition = new Vector2(_sprites[0].Position.X+48, _sprites[0].Position.Y+25);
           }
-          else if(direction == "R")
-          {
-            realPosition = new Vector2(_sprites[0].Position.X+60, _sprites[0].Position.Y+25);
-          }
-          else
-          {
-            realPosition = new Vector2(_sprites[0].Position.X+68, _sprites[0].Position.Y+25);
-          }
-          //realPosition = new Vector2(_sprites[0].Position.X+50, _sprites[0].Position.Y+30);
+          realPosition = new Vector2((int)_sprites[0].Position.X+125, (int)_sprites[0].Position.Y+60);
           if(cptImmune == 0)
           {
             cptImmune = 100;
@@ -922,12 +913,12 @@ namespace projet_MonoGame
                     foreach (var sprite in _spritesGolem)
                       sprite.Draw(spriteBatch);
                   }
-                  spriteBatch.Draw(lifeBar, new Rectangle((int)Math.Truncate(realPosition.X) ,(int)Math.Truncate(realPosition.Y)-20,lifeWidth ,lifeHeight), Color.White);
+                  spriteBatch.Draw(lifeBar, new Rectangle((int)Math.Truncate(realPosition.X)-65 ,(int)Math.Truncate(realPosition.Y)-60,lifeWidth ,lifeHeight), Color.White);
                   if(dead == true)
                   {
                     foreach (var sprite in _spritesDie)
                       sprite.Draw(spriteBatch);
-                  }
+                  }      
                   spriteBatch.End();
                   base.Draw(gameTime);
                   break;

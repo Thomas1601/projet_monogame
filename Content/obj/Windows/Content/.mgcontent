@@ -9,11 +9,13 @@
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/../../../../../png_monogame/Waterfall.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/bg.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/bg_accueil.jpg</File>
+    <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/bg_waterbridge.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/forest_2.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/forest_stone.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/full_life.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/gameplay_1.jpg</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/gameplay_2.png</File>
+    <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/realWin.jpg</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/youdied.jpg</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/logoRetro2.png</File>
     <File>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Monster/Golem_die_L.png</File>
@@ -51,6 +53,8 @@
     <File>Player/DieL.png</File>
     <File>Player/DieR.png</File>
     <File>Background/Waterfall.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -45,7 +45,7 @@ namespace projet_MonoGame
 
     private int lifePoints = 5; 
     private int lpSanglier = 3;
-    private int lpGolem = 6;
+    private int lpGolem = 5;
     private bool dead = false;
     private int compteurCascade;
     private SoundEffectInstance soundCascade;
@@ -61,6 +61,7 @@ namespace projet_MonoGame
     public int distance;
     public Texture2D bgAccueil;
     public Texture2D bgDied;
+    public Texture2D bgWin;
     public Texture2D logoRetro2;
     public Texture2D knight;
     public Texture2D bgGame;
@@ -117,7 +118,7 @@ namespace projet_MonoGame
 
       // NOTE: I no-longer use this reference as it affects different objects if being used multiple times!
       
-      bgGame = Content.Load<Texture2D>("Background/testGamePlay");
+      bgGame = Content.Load<Texture2D>("Background/bg_waterbridge");
       bgAccueil = Content.Load<Texture2D>("Background/bg_accueil");
       bgDied = Content.Load<Texture2D>("Background/youdied");
       logoRetro2 = Content.Load<Texture2D>("logoRetro2");
@@ -173,7 +174,7 @@ namespace projet_MonoGame
           Position = new Vector2(1100, ground-15),
         },
       };
-      _spritesSanglier[0].Speed = 5.8f;
+      _spritesSanglier[0].Speed = 5.2f;
 
       _spritesEmptySanglier = new List<SpriteMonster>()
       {
@@ -197,7 +198,7 @@ namespace projet_MonoGame
           { "AnimR", new Animation(Content.Load<Texture2D>("Background/Waterfall"), 9) },
         }, "LEFT")
         {
-          Position = new Vector2(200, ground-120),
+          Position = new Vector2(400, ground-200),
         },
       };
 
@@ -376,7 +377,7 @@ namespace projet_MonoGame
             if(cptHit == 0)
             {
               DecreaseMonsterLifebar();
-              cptHit = 40;
+              cptHit = 25;
             } 
           }  
         }
@@ -384,13 +385,13 @@ namespace projet_MonoGame
       else if(curMap == 2)
       {
         var nTmp = Distance(_spritesGolem[0].Position, _sprites[0].Position);
-        if(nTmp < 50.0 && lpGolem > 0)
+        if(nTmp < 30.0 && lpGolem > 0)
         {
           if(state.IsKeyDown(Keys.A)){
             if(cptHit == 0)
             {
               DecreaseMonsterLifebar();
-              cptHit = 40;
+              cptHit = 25;
             } 
           }  
         }
@@ -400,14 +401,15 @@ namespace projet_MonoGame
     void Replay()
     {
       lifePoints = 5;
-      lpGolem = 6;
+      lpGolem = 5;
       lpSanglier = 3;
       lifeBar = Content.Load<Texture2D>("Player/life/full_life");
       direction = "L";
       cptMort = 50;
       dead = false;
       cptMort = 50;
-      curMap = 0;
+      curMap = 1;
+      bgGame = Content.Load<Texture2D>("Background/bg_waterbridge");
       _spritesSanglier = new List<SpriteMonster>()
       {
         new SpriteMonster(new Dictionary<string, Animation>()
@@ -421,6 +423,7 @@ namespace projet_MonoGame
           Position = new Vector2(1100, ground-15),
         },
       };
+      _spritesSanglier[0].Speed = 5.2f;
 
       _sprites = new List<Sprite>()
       {
@@ -459,7 +462,7 @@ namespace projet_MonoGame
           Position = new Vector2(1100, ground-13),
         },
       };
-
+      _spritesGolem[0].Speed = 2.3f;
     }
 
     void IsDamaged()
@@ -471,7 +474,10 @@ namespace projet_MonoGame
         if(nTmp < 30.0 && lpSanglier > 0)
         {
           if(! state.IsKeyDown(Keys.E)){
-            DecreaseLifebar();
+            if(! state.IsKeyDown(Keys.A))
+            {
+              DecreaseLifebar();
+            }
           }  
         }
       }
@@ -519,6 +525,7 @@ namespace projet_MonoGame
         if(state.IsKeyDown(Keys.Space)){
           curMap = 1;
           _gameState = GameState.GamePlay;
+          Replay();
         }
         if (state.IsKeyDown(Keys.Escape) && time >= 60){
           Exit();
@@ -652,7 +659,7 @@ namespace projet_MonoGame
             curMap+=1;
           }
           else if(_sprites[0].Position.X <= 50 && curMap > 1){
-            bgGame = Content.Load<Texture2D>("Background/gameplay_1");
+            bgGame = Content.Load<Texture2D>("Background/bg_waterbridge");
             if(curMap == 2){
               _sprites[0].Position = posEndMap1;
             }
@@ -738,6 +745,16 @@ namespace projet_MonoGame
                     _spriteBatch.End();
                     base.Draw(gameTime);
                     break;
+                }
+                case GameState.EndGame:
+                {
+                  _spriteBatch.Begin();
+                  bgWin = Content.Load<Texture2D>("Background/realWin");
+                  _spriteBatch.Draw(bgWin, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
+                    //_spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2)+150,logoWidth ,logoHeight), Color.White);
+                  _spriteBatch.End();
+                  base.Draw(gameTime);
+                  break;
                 }
                 case GameState.GamePlay:
                 {

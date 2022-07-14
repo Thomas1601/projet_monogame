@@ -319,3 +319,5 @@ C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netco
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\DefL.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Player\DefR.xnb
 C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\youdied.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\bg_waterbridge.xnb
+C:\Users\Jules\Desktop\Jules\Efficom\TP_MonoGame\projet_monogame\bin\Debug\netcoreapp3.1\Content\Background\realWin.xnb

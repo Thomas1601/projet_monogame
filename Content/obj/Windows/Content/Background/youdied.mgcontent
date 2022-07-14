@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/../../../../../png_monogame/DieL.png</SourceFile>
-  <SourceTime>2022-07-14T12:26:24.131222+02:00</SourceTime>
-  <DestFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Player/DieL.xnb</DestFile>
-  <DestTime>2022-07-14T12:30:38.3023512+02:00</DestTime>
+  <SourceFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/Background/youdied.jpg</SourceFile>
+  <SourceTime>2022-07-14T12:12:08.1513493+02:00</SourceTime>
+  <DestFile>C:/Users/Jules/Desktop/Jules/Efficom/TP_MonoGame/projet_monogame/Content/bin/Windows/Content/Background/youdied.xnb</DestFile>
+  <DestTime>2022-07-14T12:20:05.8525416+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

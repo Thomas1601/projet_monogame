@@ -25,9 +25,11 @@ namespace projet_MonoGame
 
     private int cptImmune = 100;
 
+    private int cptHit = 0;
+
     private List<SpriteMonster> _spritesSanglier;
 
-    private List<SpriteAnimation> _spritesAnimation;
+    private List<SpriteMonster> _spritesEmptySanglier;
 
     private List<SpriteAnimation> _spritesDie;
 
@@ -37,11 +39,13 @@ namespace projet_MonoGame
 
     private List<Sprite> _spritesEmpty;
 
-    private int cptMort = 28;
+    private int cptMort = 50;
 
     private Vector2 realPosition;
 
     private int lifePoints = 5; 
+    private int lpSanglier = 3;
+    private int lpGolem = 6;
     private bool dead = false;
     private int compteurCascade;
     private SoundEffectInstance soundCascade;
@@ -56,6 +60,7 @@ namespace projet_MonoGame
     public const int windowHeight = 800;
     public int distance;
     public Texture2D bgAccueil;
+    public Texture2D bgDied;
     public Texture2D logoRetro2;
     public Texture2D knight;
     public Texture2D bgGame;
@@ -64,8 +69,8 @@ namespace projet_MonoGame
     public Texture2D lifeBar;
     public int logoWidth = 300;
     public int logoHeight = 150;
-    public int lifeWidth = 90;
-    public int lifeHeight = 20;
+    public int lifeWidth = 100;
+    public int lifeHeight = 25;
     public int compteurAttack = 0;
     public Song song;
     public Song songIntro;
@@ -114,6 +119,7 @@ namespace projet_MonoGame
       
       bgGame = Content.Load<Texture2D>("Background/testGamePlay");
       bgAccueil = Content.Load<Texture2D>("Background/bg_accueil");
+      bgDied = Content.Load<Texture2D>("Background/youdied");
       logoRetro2 = Content.Load<Texture2D>("logoRetro2");
       knight = Content.Load<Texture2D>("Player/Knight");
       lifeBar = Content.Load<Texture2D>("Player/life/full_life");
@@ -127,7 +133,7 @@ namespace projet_MonoGame
       soundEffects.Add(Content.Load<SoundEffect>("Music/SoundEffect/Waterfall"));
       soundEffects.Add(Content.Load<SoundEffect>("Music/SoundEffect/Hurt"));
       soundEffects.Add(Content.Load<SoundEffect>("Music/SoundEffect/Die"));
-      SoundEffect.MasterVolume = 0.08f;
+      SoundEffect.MasterVolume = 0.06f;
       //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
 
       _sprites = new List<Sprite>()
@@ -138,6 +144,8 @@ namespace projet_MonoGame
           { "WalkRight", new Animation(Content.Load<Texture2D>("Player/walkR"), 7) },
           { "AttackLeft", new Animation(Content.Load<Texture2D>("Player/attackL"), 7)},
           { "AttackRight", new Animation(Content.Load<Texture2D>("Player/attackR"), 7) },
+          { "DefLeft", new Animation(Content.Load<Texture2D>("Player/DefL"), 5) },
+          { "DefRight", new Animation(Content.Load<Texture2D>("Player/DefR"), 5) },
         })
         {
           Position = new Vector2(50, ground),
@@ -147,6 +155,7 @@ namespace projet_MonoGame
             Right = Keys.D,
             Up = Keys.Space,
             A = Keys.A,
+            E = Keys.E,
           },
         },
       };
@@ -166,15 +175,17 @@ namespace projet_MonoGame
       };
       _spritesSanglier[0].Speed = 5.8f;
 
-      _spritesAnimation = new List<SpriteAnimation>()
+      _spritesEmptySanglier = new List<SpriteMonster>()
       {
-        new SpriteAnimation(new Dictionary<string, Animation>()
+        new SpriteMonster(new Dictionary<string, Animation>()
         {
-          { "AnimL", new Animation(Content.Load<Texture2D>("Player/AnimAttack/impactL"), 7) },
-          { "AnimR", new Animation(Content.Load<Texture2D>("Player/AnimAttack/impactL"), 7) },
-        }, "LEFT")
+          { "WalkLeft", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 8) },
+          { "WalkRight", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 8) },
+          { "DieRight", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 8)},
+          { "DieLeft", new Animation(Content.Load<Texture2D>("Player/spriteVide"), 8)},
+        })
         {
-          Position = new Vector2(_sprites[0].Position.X-10, ground-15),
+          Position = new Vector2(1100, ground-15),
         },
       };
 
@@ -203,7 +214,7 @@ namespace projet_MonoGame
           Position = new Vector2(1100, ground-13),
         },
       };
-      _spritesGolem[0].Speed = 2.5f;
+      _spritesGolem[0].Speed = 2.3f;
 
       _spritesEmpty = new List<Sprite>()
       {
@@ -261,8 +272,8 @@ namespace projet_MonoGame
       {
         new SpriteAnimation(new Dictionary<string, Animation>()
         {
-          { "AnimL", new Animation(Content.Load<Texture2D>("Player/DieL"), 6) },
-          { "AnimR", new Animation(Content.Load<Texture2D>("Player/DieR"), 6) },
+          { "AnimL", new Animation(Content.Load<Texture2D>("Player/DieL"), 9) },
+          { "AnimR", new Animation(Content.Load<Texture2D>("Player/DieR"), 9) },
         }, "LEFT")
         {
           Position = new Vector2(_sprites[0].Position.X, ground+20),
@@ -275,8 +286,8 @@ namespace projet_MonoGame
       {
         new SpriteAnimation(new Dictionary<string, Animation>()
         {
-          { "AnimL", new Animation(Content.Load<Texture2D>("Player/DieL"), 6) },
-          { "AnimR", new Animation(Content.Load<Texture2D>("Player/DieR"), 6) },
+          { "AnimL", new Animation(Content.Load<Texture2D>("Player/DieL"), 9) },
+          { "AnimR", new Animation(Content.Load<Texture2D>("Player/DieR"), 9) },
         }, "RIGHT")
         {
           Position = new Vector2(_sprites[0].Position.X, ground+20),
@@ -285,59 +296,6 @@ namespace projet_MonoGame
       }
     }
 
-
-    void runAnimation(Vector2 posTmp)
-    {
-      distance = -1;
-      if(curMap == 1)
-      {
-        if(direction == "R")
-        {
-          distance = (int)_spritesSanglier[0].Position.X - (int)_sprites[0].Position.X;
-        }
-        else
-        {
-          distance = (int)_sprites[0].Position.X - (int)_spritesSanglier[0].Position.X;
-        }
-        if(distance <= 15 && distance >= 0)
-        {
-          if(direction == "R")
-          {
-            _spritesAnimation[0].direction = "RIGHT";
-          }
-          else if(direction =="L")
-          {
-            _spritesAnimation[0].direction = "LEFT";
-          }
-          _spritesAnimation[0].Position = posTmp;
-        }
-      }
-      else if(curMap == 2)
-      {
-        if(direction == "R")
-        {
-          distance = (int)_spritesGolem[0].Position.X - (int)_sprites[0].Position.X;
-        }
-        else
-        {
-          distance = (int)_sprites[0].Position.X - (int)_spritesGolem[0].Position.X;
-        }
-        if(distance <= 20 && distance >= 0)
-        {
-          if(direction == "R")
-          {
-            posTmp = new Vector2(_spritesGolem[0].Position.X, _spritesGolem[0].Position.Y - 40);
-            _spritesAnimation[0].direction = "RIGHT";
-          }
-          else
-          {
-            posTmp = new Vector2(_spritesGolem[0].Position.X, _spritesGolem[0].Position.Y - 40);
-            _spritesAnimation[0].direction = "LEFT";
-          }
-          _spritesAnimation[0].Position = posTmp;
-        }
-      }
-    }
 
     public static float Distance(Vector2 value1, Vector2 value2)
     {
@@ -386,17 +344,135 @@ namespace projet_MonoGame
       }
     }
 
-    void IsDamaged()
+    void DecreaseMonsterLifebar()
     {
       if(curMap == 1)
       {
-        var nTmp = Distance(_spritesSanglier[0].Position, _sprites[0].Position);
-        //using (StreamWriter sw = new StreamWriter("myFile.txt", true)) {
-        //    sw.WriteLine(nTmp + "");
-        // }
-        if(nTmp < 30.0)
+        lpSanglier -= 1;
+        if(lpSanglier <= 0)
         {
-          DecreaseLifebar();
+          _spritesSanglier = _spritesEmptySanglier;
+        }
+      }
+      else if(curMap == 2)
+      {
+        lpGolem -= 1;
+        if(lpGolem <= 0)
+        {
+          _spritesGolem = _spritesEmptySanglier;
+        }
+      }
+    }
+
+    void Attack()
+    {
+      KeyboardState state = Keyboard.GetState();
+      if(curMap == 1)
+      {
+        var nTmp = Distance(_spritesSanglier[0].Position, _sprites[0].Position);
+        if(nTmp < 30.0 && lpSanglier > 0)
+        {
+          if(state.IsKeyDown(Keys.A)){
+            if(cptHit == 0)
+            {
+              DecreaseMonsterLifebar();
+              cptHit = 40;
+            } 
+          }  
+        }
+      }
+      else if(curMap == 2)
+      {
+        var nTmp = Distance(_spritesGolem[0].Position, _sprites[0].Position);
+        if(nTmp < 50.0 && lpGolem > 0)
+        {
+          if(state.IsKeyDown(Keys.A)){
+            if(cptHit == 0)
+            {
+              DecreaseMonsterLifebar();
+              cptHit = 40;
+            } 
+          }  
+        }
+      }
+    }
+
+    void Replay()
+    {
+      lifePoints = 5;
+      lpGolem = 6;
+      lpSanglier = 3;
+      lifeBar = Content.Load<Texture2D>("Player/life/full_life");
+      direction = "L";
+      cptMort = 50;
+      dead = false;
+      cptMort = 50;
+      curMap = 0;
+      _spritesSanglier = new List<SpriteMonster>()
+      {
+        new SpriteMonster(new Dictionary<string, Animation>()
+        {
+          { "WalkLeft", new Animation(Content.Load<Texture2D>("Monster/Sanglier_RunL"), 8) },
+          { "WalkRight", new Animation(Content.Load<Texture2D>("Monster/Sanglier_Run"), 8) },
+          { "DieRight", new Animation(Content.Load<Texture2D>("Monster/Sanglier_DieR"), 4)},
+          { "DieLeft", new Animation(Content.Load<Texture2D>("Monster/Sanglier_DieL"), 4)},
+        })
+        {
+          Position = new Vector2(1100, ground-15),
+        },
+      };
+
+      _sprites = new List<Sprite>()
+      {
+        new Sprite(new Dictionary<string, Animation>()
+        {
+          { "WalkLeft", new Animation(Content.Load<Texture2D>("Player/walkL"), 7) },
+          { "WalkRight", new Animation(Content.Load<Texture2D>("Player/walkR"), 7) },
+          { "AttackLeft", new Animation(Content.Load<Texture2D>("Player/attackL"), 7)},
+          { "AttackRight", new Animation(Content.Load<Texture2D>("Player/attackR"), 7) },
+          { "DefLeft", new Animation(Content.Load<Texture2D>("Player/DefL"), 5) },
+          { "DefRight", new Animation(Content.Load<Texture2D>("Player/DefR"), 5) },
+        })
+        {
+          Position = new Vector2(50, ground),
+          Input = new Input()
+          {
+            Left = Keys.Q,
+            Right = Keys.D,
+            Up = Keys.Space,
+            A = Keys.A,
+            E = Keys.E,
+          },
+        },
+      };
+
+      _spritesGolem = new List<SpriteMonster>()
+      {
+        new SpriteMonster(new Dictionary<string, Animation>()
+        {
+          { "WalkLeft", new Animation(Content.Load<Texture2D>("Monster/Golem_walk_L"), 11) },
+          { "WalkRight", new Animation(Content.Load<Texture2D>("Monster/Golem_walk_R"), 11) },
+          { "DieRight", new Animation(Content.Load<Texture2D>("Monster/Golem_die_R"), 5)},
+          { "DieLeft", new Animation(Content.Load<Texture2D>("Monster/Golem_die_L"), 5)},
+        })
+        {
+          Position = new Vector2(1100, ground-13),
+        },
+      };
+
+    }
+
+    void IsDamaged()
+    {
+      KeyboardState state = Keyboard.GetState();
+      if(curMap == 1)
+      {
+        var nTmp = Distance(_spritesSanglier[0].Position, _sprites[0].Position);
+        if(nTmp < 30.0 && lpSanglier > 0)
+        {
+          if(! state.IsKeyDown(Keys.E)){
+            DecreaseLifebar();
+          }  
         }
       }
       else if(curMap == 2)
@@ -449,9 +525,85 @@ namespace projet_MonoGame
         }
           break;
         }
+        case GameState.GameDie:
+        {
+          if(curSong != "GameDie"){
+            MediaPlayer.Play(songIntro);
+            curSong = "GameDie";
+          }
+          if(state.IsKeyDown(Keys.Escape))
+          {
+            _gameState = GameState.MainMenu;
+          }
+          break;
+        }
+        case GameState.EndGame:
+        {
+          if(curSong != "GameDie"){
+            MediaPlayer.Play(songIntro);
+            curSong = "GameDie";
+          }
+          if(state.IsKeyDown(Keys.Escape))
+          {
+            _gameState = GameState.MainMenu;
+          }
+          break;
+        }
         case GameState.GamePlay:
         { 
-          realPosition = new Vector2(_sprites[0].Position.X+50, _sprites[0].Position.Y+30);
+          if(cptHit > 0)
+          {
+            cptHit -= 1;
+          }
+          if(state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Q))
+          {
+            realPosition = new Vector2(_sprites[0].Position.X+68, _sprites[0].Position.Y+25);
+          }
+          else if(state.IsKeyDown(Keys.A) && direction == "L")
+          {
+            if(curMap == 1 && lpSanglier > 0)
+            {
+              if(_sprites[0].Position.X > _spritesSanglier[0].Position.X)
+              {
+                Attack();
+              }
+            }
+            if(curMap == 2 && lpGolem > 0)
+            {
+              if(_sprites[0].Position.X > _spritesGolem[0].Position.X)
+              {
+                Attack();
+              }
+            }
+            realPosition = new Vector2(_sprites[0].Position.X+68, _sprites[0].Position.Y+25);
+          }
+          else if(state.IsKeyDown(Keys.A) && direction == "R")
+          {
+            if(curMap == 1 && lpSanglier > 0)
+            {
+              if(_sprites[0].Position.X < _spritesSanglier[0].Position.X)
+              {
+                Attack();
+              }
+            }
+            if(curMap == 2 && lpGolem > 0)
+            {
+              if(_sprites[0].Position.X < _spritesGolem[0].Position.X)
+              {
+                Attack();
+              }
+            }
+            realPosition = new Vector2(_sprites[0].Position.X+48, _sprites[0].Position.Y+25);
+          }
+          else if(direction == "R")
+          {
+            realPosition = new Vector2(_sprites[0].Position.X+60, _sprites[0].Position.Y+25);
+          }
+          else
+          {
+            realPosition = new Vector2(_sprites[0].Position.X+68, _sprites[0].Position.Y+25);
+          }
+          //realPosition = new Vector2(_sprites[0].Position.X+50, _sprites[0].Position.Y+30);
           if(cptImmune == 0)
           {
             cptImmune = 100;
@@ -471,6 +623,8 @@ namespace projet_MonoGame
             if(cptMort == 0)
             {
               lifeBar.Dispose();
+              _gameState = GameState.GameDie;
+              Replay();
             }
           }
           if(curMap == 1)
@@ -486,11 +640,10 @@ namespace projet_MonoGame
           {
             direction = "L";
           }
-          //if(_sprites[0].Position.X >= windowWidth-50 && curMap == 2)
-          //{
-          //_sprites = _spritesEmpty;
-          //lifeBar.Dispose();
-          //}
+          if(_sprites[0].Position.X >= windowWidth-50 && curMap == 2)
+          {
+          _gameState = GameState.EndGame;
+          }
           if(_sprites[0].Position.X >= windowWidth-50 && curMap < 2){
             bgGame = Content.Load<Texture2D>("Background/forest_stone");
             if(curMap == 1){
@@ -516,28 +669,8 @@ namespace projet_MonoGame
               jumpTime += 1;
           }
           
-          if(state.IsKeyDown(Keys.A) && compteurAttack < 8)
+          if(state.IsKeyDown(Keys.A) && attackTime == 0)
           {
-            if(compteurAttack == 0)
-            {
-              posTmp = new Vector2(_spritesSanglier[0].Position.X, _spritesSanglier[0].Position.Y - 35);
-            }
-            compteurAttack += 1;
-            runAnimation(posTmp);
-            _spritesAnimation[0].Update(gameTime, _spritesAnimation);
-          }
-          else if(compteurAttack > 0 && compteurAttack < 8)
-          {
-            compteurAttack += 1;
-            runAnimation(posTmp);
-            _spritesAnimation[0].Update(gameTime, _spritesAnimation);
-          }
-          if(compteurAttack > 7)
-          {
-            _spritesAnimation[0].direction = "None";
-            compteurAttack = 0;
-          }
-          if(state.IsKeyDown(Keys.A) && attackTime == 0){
             soundEffects[1].CreateInstance().Play();
             attackTime += 1;
           }
@@ -555,18 +688,20 @@ namespace projet_MonoGame
           if(state.IsKeyDown(Keys.Escape)){
             _gameState = GameState.MainMenu;
         }
-          foreach (var sprite in _sprites)
-          {
-            sprite.Update(gameTime, _sprites);
-          }
+          //foreach (var sprite in _sprites)
+          //{
+        _sprites[0].Update(gameTime, _sprites);
+          //}
         if(curMap == 1)
         {
-          _spritesSanglier[0].Update(gameTime, _spritesSanglier);
+          if(lpSanglier > 0)
+            _spritesSanglier[0].Update(gameTime, _spritesSanglier);
         }
         else if(curMap == 2)
         {
           soundCascade.Stop();
-          _spritesGolem[0].Update(gameTime, _spritesGolem);
+          if(lpGolem > 0)
+            _spritesGolem[0].Update(gameTime, _spritesGolem);
         }
           break;
         }
@@ -590,6 +725,15 @@ namespace projet_MonoGame
                 {
                     _spriteBatch.Begin();
                     _spriteBatch.Draw(bgAccueil, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
+                    //_spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2)+150,logoWidth ,logoHeight), Color.White);
+                    _spriteBatch.End();
+                    base.Draw(gameTime);
+                    break;
+                }
+                case GameState.GameDie:
+                {
+                    _spriteBatch.Begin();
+                    _spriteBatch.Draw(bgDied, new Rectangle(0 ,0 ,windowWidth ,windowHeight), Color.White);
                     //_spriteBatch.Draw(logoRetro2, new Rectangle((windowWidth/2)-(logoWidth/2) , (windowHeight/2)-(logoHeight/2)+150,logoWidth ,logoHeight), Color.White);
                     _spriteBatch.End();
                     base.Draw(gameTime);
@@ -625,16 +769,18 @@ namespace projet_MonoGame
                       runCascade = "N";
                       compteurCascade = 0;
                     }
-                    foreach (var sprite in _spritesSanglier)
-                      sprite.Draw(spriteBatch);
+                    if(lpSanglier > 0)
+                    {
+                      foreach (var sprite in _spritesSanglier)
+                        sprite.Draw(spriteBatch);
+                    }
+                    
                   }
                   else if(curMap == 2){
                     runCascade = "N";
                     foreach (var sprite in _spritesGolem)
                       sprite.Draw(spriteBatch);
                   }
-                  foreach (var sprite in _spritesAnimation)
-                      sprite.Draw(spriteBatch);
                   spriteBatch.Draw(lifeBar, new Rectangle((int)Math.Truncate(realPosition.X) ,(int)Math.Truncate(realPosition.Y)-20,lifeWidth ,lifeHeight), Color.White);
                   if(dead == true)
                   {

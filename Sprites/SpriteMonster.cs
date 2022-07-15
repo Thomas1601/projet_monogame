@@ -21,9 +21,9 @@ namespace projet_MonoGame.Sprites
 
     protected Vector2 _position;
 
-    public string state { get; set; }
+    public string State { get; set; }
 
-    public string direction { get; set; }
+    public string Direction { get; set; }
 
     public float Speed { get; set; } = 4.2f;
 
@@ -65,27 +65,21 @@ namespace projet_MonoGame.Sprites
 
     public virtual void Move()
     {
-      if (direction == "LEFT"){
+      if (Direction == "LEFT"){
         Velocity.X = -Speed;
       }
-      else if (direction == "RIGHT"){
+      else if (Direction == "RIGHT"){
         Velocity.X = Speed;
       }
-      else if (direction == "ATTACK")
+      else if (Direction == "ATTACK")
       {
         Velocity.X = 0.0f;
       }
-      //if (Keyboard.GetState().IsKeyDown(Input.Up))
-      //  Velocity.Y = -2*Speed;
-      //if(Keyboard.GetState().IsKeyDown(Input.A)){
-      //}
-    //if(Keyboard.GetState().IsKeyDown(Input.E)){
-     // }
     }
 
     protected virtual void SetAnimations()
     {
-      if(direction == "ATTACK")
+      if(Direction == "ATTACK")
       {
         _animationManager.Play(_animations["AttackLeft"]);
       }
@@ -106,7 +100,7 @@ namespace projet_MonoGame.Sprites
     }
     public SpriteMonster(Dictionary<string, Animation> animations)
     {
-      this.direction = "LEFT";
+      this.Direction = "LEFT";
       _animations = animations;
       _animationManager = new AnimationManager(_animations.First().Value);
     }

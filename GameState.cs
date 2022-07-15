@@ -3,5 +3,6 @@ enum GameState{
     GamePlay,
     GameDie,
     GameCmd,
+    GameScore,
     EndGame
 }

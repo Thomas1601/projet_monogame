@@ -38,14 +38,14 @@ namespace projet_MonoGame
     private Vector2 _realPosition;
     private Vector2 _realPositionGolem;
     private Vector2 _realPositionSanglier;
-    private int _lifePoints = 5; 
+    private int _lifePoints = 5;
     private int _lpSanglier = 3;
     private int _lpGolem = 5;
     private bool _dead = false;
     private bool _stored = false;
     private bool _rockThrown = false;
     private int _compteurCascade;
-    public string RoadFile = ".\\Scores.txt";
+    public string RoadFile = "Scores.txt";
     private SoundEffectInstance _soundCascade;
     public int Ground {get; set;} = 550;
     public string RunCascade {get; set;} = "N";
